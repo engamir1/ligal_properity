@@ -105,7 +105,7 @@ function updateChartsTheme(theme) {
 function setupEventListeners() {
     document.getElementById('btnNext')?.addEventListener('click', nextSlide);
     document.getElementById('btnPrev')?.addEventListener('click', prevSlide);
-    
+
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const slideIndex = parseInt(btn.getAttribute('data-slide'));
@@ -165,7 +165,7 @@ function updateSlideView(index) {
 
     currentSlide = index;
     if (currentSlideNumEl) currentSlideNumEl.textContent = index + 1;
-    
+
     const progress = ((index + 1) / totalSlides) * 100;
     if (progressBar) progressBar.style.width = `${progress}%`;
 
@@ -207,7 +207,7 @@ function initCounters() {
         const target = +counter.getAttribute('data-target');
         let count = 0;
         const speed = target / 25;
-        
+
         const updateCount = () => {
             count += speed;
             if (count < target) {
@@ -227,7 +227,7 @@ function initCounters() {
 const nodeDescriptions = {
     contract: {
         1: { title: "المرحلة 1: الرصد والاستشعار الميداني", desc: "تقوم لجان المرور الميدانية والإدارات بحصر التعديات وتدفق التراخيص وإدخالها فورياً على المنظومة الموازية لحفظ حقوق الدولة ومنع ترسيخ أي أمر واقع." },
-        2: { title: "المرحلة 2: التدقيق والفرز الفني", desc: "تطبيق المعايير الهندسية لمنافع الصرف: تحديد الصلاحية (صالحة للتعاقد 56.4% أو غير صالحة 43.6%) وفرز الممتنعين المستهدفين بالإرشاد." },
+        2: { title: "المرحلة 2: التدقيق والفرز الفني", desc: "تطبيق المعايير الهندسية لمنافع الصرف: تحديد الصلاحية (صالحة للتقنين 56.4% أو غير صالحة 43.6%) وفرز الممتنعين المستهدفين بالإرشاد." },
         3: { title: "المرحلة 3: الربط السيادي والمكاني", desc: "إرسال الإحداثيات والرفع المساحي الرقمي إلى هيئة المساحة العسكرية ومطابقتها مع خرائط المتغيرات المكانية الوطنية لضمان عدم وجود تداخل." },
         4: { title: "المرحلة 4: إصدار كارت الوصف المميكن", desc: "توليد كارت وصف مشفر بـ QR Code وباركود ورقم إحداثي معتمد يثبت حدود القطعة وشاغلها الفعلي وطبيعة الاستغلال." },
         5: { title: "المرحلة 5: إبرام العقد والتحصيل المالي", desc: "توقيع العقد الرسمي، سداد مقدمات ومقابل الانتفاع، وتحويل الأصل إلى مورد مالي مستدام للدولة بحماية قانونية كاملة." }
@@ -242,7 +242,7 @@ const nodeDescriptions = {
     removal: {
         1: { title: "المرحلة 1: رصد مخالفة غير قابلة للتقنين", desc: "رصد أي تعدٍ يقع داخل القطاع المائي الحرج أو حرم المصرف العام مما يعيق التدفق المائي أو يهدد سلامة الجسور." },
         2: { title: "المرحلة 2: الحسم الفني بعدم الصلاحية", desc: "إصدار قرار فني قاطع برفض التقنين (977 حالة غير صالحة) وتصنيف درجة خطورة التعدي." },
-        3: { title: "المرحلة 3: اتخاذ الإجراءات القانونية", desc: "تحرير محاضر إثبات المخالفة واستصدار قرارات إزالة نهائية معتمدة (764 قراراً ومحضراً) وإخطار الأجهزة الأمنية." },
+        3: { title: "المرحلة 3: اتخاذ الإجراءات القانونية", desc: "تم اتخاذ الإجراءات القانونية لعدد 764 حالة (جنح / أحكام قضائية) واستصدار القرارات اللازمة وإخطار الجهات المختصة." },
         4: { title: "المرحلة 4: الإدراج في موجات الإزالة", desc: "التنسيق مع قوات إنفاذ القانون والمحليات وتجهيز المعدات الميكانيكية للهيئة لتنفيذ الإزالة الفورية." },
         5: { title: "المرحلة 5: التنفيذ الفعلي واسترداد الأصل", desc: "إزالة التعدي بالكامل ورد الشيء لأصله واسترداد الأرض فضاء (185 حالة منفذة بنجاح) وتطبيق الحجز الإداري لمقابل الانتفاع." }
     }
@@ -254,11 +254,11 @@ function selectAnimNode(num) {
         const node = document.getElementById(`node${i}`);
         if (node) node.classList.toggle('active-node', i === num);
     }
-    
+
     const info = nodeDescriptions[currentAnimMode][num];
     const titleEl = document.getElementById('animCardTitle');
     const descEl = document.getElementById('animCardDesc');
-    
+
     if (titleEl && descEl && info) {
         titleEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${info.title}`;
         descEl.textContent = info.desc;
@@ -307,8 +307,8 @@ function toggleSystemAnimation() {
     isAnimRunning = !isAnimRunning;
     const btn = document.getElementById('btnAnimToggle');
     if (btn) {
-        btn.innerHTML = isAnimRunning 
-            ? '<i class="fa-solid fa-pause"></i> إيقاف مؤقت' 
+        btn.innerHTML = isAnimRunning
+            ? '<i class="fa-solid fa-pause"></i> إيقاف مؤقت'
             : '<i class="fa-solid fa-play"></i> تشغيل المحاكاة';
     }
 }
@@ -331,7 +331,7 @@ function initAllCharts() {
         chartInstances.general = new Chart(ctxGeneral, {
             type: 'doughnut',
             data: {
-                labels: ['صالحة للتقنين والتعاقد (1,264)', 'غير صالحة للتعاقد (977)'],
+                labels: ['صالحة للتقنين (1,264)', 'غير صالحة للتقنين (977)'],
                 datasets: [{
                     data: [1264, 977],
                     backgroundColor: ['#10b981', '#f43f5e'],
@@ -351,7 +351,7 @@ function initAllCharts() {
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 const val = context.raw;
                                 const pct = ((val / 2241) * 100).toFixed(1);
                                 return ` ${val.toLocaleString()} حالة (${pct}%)`;
@@ -395,7 +395,7 @@ function initAllCharts() {
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 return ` ${context.dataset.label}: ${context.raw} حالة`;
                             }
                         }
@@ -419,18 +419,18 @@ function initAllCharts() {
                 datasets: [
                     {
                         label: 'محاضر وقرارات إزالة (764)',
-                        data: [323, 200, 172, 61, 4, 4],
+                        data: [200, 0, 170, 160, 230, 4],
                         backgroundColor: '#a855f7',
                         borderRadius: 4
                     },
                     {
                         label: 'إزالة فعلية (أرض فضاء 185)',
-                        data: [75, 1, 25, 57, 24, 2],
+                        data: [75, 1, 25, 58, 24, 2],
                         backgroundColor: '#f43f5e',
                         borderRadius: 4
                     },
                     {
-                        label: 'إعادة نظر لصالح (28)',
+                        label: 'التحويل لصالح للتقنين (28)',
                         data: [9, 0, 0, 19, 0, 0],
                         backgroundColor: '#10b981',
                         borderRadius: 4
@@ -476,7 +476,7 @@ function initAllCharts() {
                     legend: { display: false },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 const val = context.raw;
                                 const pct = ((val / 1979) * 100).toFixed(1);
                                 return ` ${val} ترخيصاً (${pct}%)`;
@@ -532,7 +532,7 @@ function initAllCharts() {
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 return ` ${context.dataset.label}: ${context.raw} حالة`;
                             }
                         }
