@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Theme Switcher Logic (Light / Dark Mode)
 // ----------------------------------------------------
 function initTheme() {
-    const savedTheme = localStorage.getItem('land_reg_theme') || 'dark';
+    const savedTheme = localStorage.getItem('land_reg_theme') || 'light';
     setTheme(savedTheme);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             setTheme(newTheme);
         });
     }
