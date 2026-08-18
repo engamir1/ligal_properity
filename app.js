@@ -1,6 +1,6 @@
 /**
  * Egyptian State Land Regularization Executive Dashboard Script
- * 16-Slide Modular Architecture + Dual-Theme Synchronization + Systems Animation Engine
+ * 15-Slide Modular Architecture + Dual-Theme Synchronization
  */
 
 // Slide State Management
@@ -21,12 +21,6 @@ const themeToggleBtn = document.getElementById('themeToggleBtn');
 const themeIcon = document.getElementById('themeIcon');
 const themeText = document.getElementById('themeText');
 
-// System Philosophy Animation State
-let animActiveNode = 1;
-let animTimer = null;
-let isAnimRunning = true;
-let currentAnimMode = 'contract';
-
 document.addEventListener('DOMContentLoaded', () => {
     if (totalSlidesNumEl) totalSlidesNumEl.textContent = totalSlides;
     initTheme();
@@ -34,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAllCharts();
     initCounters();
     setupEventListeners();
-    startSystemAnimation();
     initRegionalMethodology();
 });
 
@@ -220,98 +213,6 @@ function initCounters() {
         };
         updateCount();
     });
-}
-
-// ----------------------------------------------------
-// Interactive System Animation Functions
-// ----------------------------------------------------
-const nodeDescriptions = {
-    contract: {
-        1: { title: "المرحلة 1: الرصد والاستشعار الميداني", desc: "تقوم لجان المرور الميدانية والإدارات بحصر التعديات وتدفق التراخيص وإدخالها فورياً على المنظومة الموازية لحفظ حقوق الدولة ومنع ترسيخ أي أمر واقع." },
-        2: { title: "المرحلة 2: التدقيق والفرز الفني", desc: "تطبيق المعايير الهندسية لمنافع الصرف: تحديد الصلاحية (صالحة للتقنين 56.4% أو غير صالحة 43.6%) وفرز الممتنعين المستهدفين بالإرشاد." },
-        3: { title: "المرحلة 3: الربط السيادي والمكاني", desc: "إرسال الإحداثيات والرفع المساحي الرقمي إلى هيئة المساحة العسكرية ومطابقتها مع خرائط المتغيرات المكانية الوطنية لضمان عدم وجود تداخل." },
-        4: { title: "المرحلة 4: إصدار كارت الوصف المميكن", desc: "توليد كارت وصف مشفر بـ QR Code وباركود ورقم إحداثي معتمد يثبت حدود القطعة وشاغلها الفعلي وطبيعة الاستغلال." },
-        5: { title: "المرحلة 5: إبرام العقد والتحصيل المالي", desc: "توقيع العقد الرسمي، سداد مقدمات ومقابل الانتفاع، وتحويل الأصل إلى مورد مالي مستدام للدولة بحماية قانونية كاملة." }
-    },
-    license: {
-        1: { title: "المرحلة 1: طلب الترخيص بالانتفاع", desc: "استقبال طلبات التراخيص الصادرة من الإدارات والأقاليم (1,979 ترخيصاً) لحصر أوجه الانتفاع المؤقتة والمصرح بها." },
-        2: { title: "المرحلة 2: مراجعة الاشتراطات الفنية", desc: "فحص ومراجعة التراخيص (تم إدخال 1,330 ترخيصاً وجارٍ تدقيق 649 ترخيصاً بالرجوع للأقاليم) لضمان عدم إعاقة أعمال التطهير والصيانة." },
-        3: { title: "المرحلة 3: التوثيق الجغرافي للترخيص", desc: "توقيع موقع الترخيص بدقة على خرائط GIS الخاصة بشبكة المصارف المائية ومطابقتها مع خطوط نزع الملكية." },
-        4: { title: "المرحلة 4: كارت الترخيص الرقمي", desc: "إصدار ترخيص ذكي مميكن يحدد المدة الزمنية والأنشطة المسموح بها ورسوم مقابل الانتفاع السنوية." },
-        5: { title: "المرحلة 5: التحصيل الدوري والمتابعة", desc: "تحصيل رسوم الترخيص ومتابعة الالتزام بالاشتراطات ومنع تحول الترخيص إلى تعدٍ دائم أو تغيير للنشاط." }
-    },
-    removal: {
-        1: { title: "المرحلة 1: رصد مخالفة غير قابلة للتقنين", desc: "رصد أي تعدٍ يقع داخل القطاع المائي الحرج أو حرم المصرف العام مما يعيق التدفق المائي أو يهدد سلامة الجسور." },
-        2: { title: "المرحلة 2: الحسم الفني بعدم الصلاحية", desc: "إصدار قرار فني قاطع برفض التقنين (977 حالة غير صالحة) وتصنيف درجة خطورة التعدي." },
-        3: { title: "المرحلة 3: اتخاذ الإجراءات القانونية", desc: "تم اتخاذ الإجراءات القانونية لعدد 764 حالة (جنح / أحكام قضائية) واستصدار القرارات اللازمة وإخطار الجهات المختصة." },
-        4: { title: "المرحلة 4: الإدراج في موجات الإزالة", desc: "التنسيق مع قوات إنفاذ القانون والمحليات وتجهيز المعدات الميكانيكية للهيئة لتنفيذ الإزالة الفورية." },
-        5: { title: "المرحلة 5: التنفيذ الفعلي واسترداد الأصل", desc: "إزالة التعدي بالكامل ورد الشيء لأصله واسترداد الأرض فضاء (185 حالة منفذة بنجاح) وتطبيق الحجز الإداري لمقابل الانتفاع." }
-    }
-};
-
-function selectAnimNode(num) {
-    animActiveNode = num;
-    for (let i = 1; i <= 5; i++) {
-        const node = document.getElementById(`node${i}`);
-        if (node) node.classList.toggle('active-node', i === num);
-    }
-
-    const info = nodeDescriptions[currentAnimMode][num];
-    const titleEl = document.getElementById('animCardTitle');
-    const descEl = document.getElementById('animCardDesc');
-
-    if (titleEl && descEl && info) {
-        titleEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${info.title}`;
-        descEl.textContent = info.desc;
-    }
-}
-
-function switchAnimMode(mode) {
-    currentAnimMode = mode;
-    ['Contract', 'License', 'Removal'].forEach(m => {
-        const btn = document.getElementById(`mode${m}`);
-        if (btn) btn.classList.toggle('active', m.toLowerCase() === mode);
-    });
-
-    const node5Icon = document.getElementById('node5Icon');
-    const node5Title = document.getElementById('node5Title');
-    const node5Desc = document.getElementById('node5Desc');
-
-    if (mode === 'contract') {
-        if (node5Icon) node5Icon.innerHTML = '<i class="fa-solid fa-file-signature"></i>';
-        if (node5Title) node5Title.textContent = '5. إبرام العقد والتحصيل';
-        if (node5Desc) node5Desc.textContent = 'توقيع العقد وسداد الرسوم ومقابل الانتفاع';
-    } else if (mode === 'license') {
-        if (node5Icon) node5Icon.innerHTML = '<i class="fa-solid fa-certificate"></i>';
-        if (node5Title) node5Title.textContent = '5. إصدار الترخيص والتحصيل';
-        if (node5Desc) node5Desc.textContent = 'إصدار الترخيص وسداد مقابل الانتفاع الدوري';
-    } else if (mode === 'removal') {
-        if (node5Icon) node5Icon.innerHTML = '<i class="fa-solid fa-gavel"></i>';
-        if (node5Title) node5Title.textContent = '5. الإزالة الفورية والاسترداد';
-        if (node5Desc) node5Desc.textContent = 'تنفيذ الإزالة ورد الشيء لأصله فضاءً';
-    }
-
-    selectAnimNode(animActiveNode);
-}
-
-function startSystemAnimation() {
-    if (animTimer) clearInterval(animTimer);
-    animTimer = setInterval(() => {
-        if (isAnimRunning) {
-            animActiveNode = (animActiveNode % 5) + 1;
-            selectAnimNode(animActiveNode);
-        }
-    }, 2800);
-}
-
-function toggleSystemAnimation() {
-    isAnimRunning = !isAnimRunning;
-    const btn = document.getElementById('btnAnimToggle');
-    if (btn) {
-        btn.innerHTML = isAnimRunning
-            ? '<i class="fa-solid fa-pause"></i> إيقاف مؤقت'
-            : '<i class="fa-solid fa-play"></i> تشغيل المحاكاة';
-    }
 }
 
 // ----------------------------------------------------
@@ -626,9 +527,15 @@ function initAllCharts() {
                         borderRadius: 6
                     },
                     {
-                        label: 'تم التوقيع / موافقة مشروطة',
-                        data: [1, 5, 20, 0, 0, 8],
+                        label: 'تم التوقيع الفعلي',
+                        data: [1, 5, 1, 0, 0, 0],
                         backgroundColor: '#10b981',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'موافقة مبدئية مشروطة (فصل حد مساحي)',
+                        data: [0, 0, 11, 0, 0, 0],
+                        backgroundColor: '#06b6d4',
                         borderRadius: 6
                     },
                     {
@@ -638,8 +545,8 @@ function initAllCharts() {
                         borderRadius: 6
                     },
                     {
-                        label: 'مهلة تفكير وتفاوض',
-                        data: [1, 5, 0, 0, 15, 4],
+                        label: 'مهلة تفكير وتفاوض نشط',
+                        data: [1, 5, 8, 0, 15, 12],
                         backgroundColor: '#f59e0b',
                         borderRadius: 6
                     }
@@ -652,6 +559,17 @@ function initAllCharts() {
                     legend: {
                         position: 'top',
                         labels: { boxWidth: 12, padding: 10, font: { size: 11, weight: 'bold' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            afterBody: function(context) {
+                                const index = context[0].dataIndex;
+                                if (index === 2) {
+                                    return '\nتفصيل شرق الدلتا:\n• المستهدف: 20 مواطناً\n• تم التوقيع: 1 (الشرقية)\n• موافقة مشروطة بفصل الحد: 11 (الدقهلية)\n• مهلة تفكير ومتابعة: 8';
+                                }
+                                return '';
+                            }
+                        }
                     }
                 },
                 scales: {
