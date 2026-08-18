@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منظومة تقنين أراضي الدولة | التقرير التنفيذي والعرض الإداري</title>
+    <title>منظومة تقنين أراضي الدولة وأملاك الصرف | التقرير التنفيذي وقياس الأداء</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome 6.5.1 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Chart.js 4 -->
@@ -16,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Background Ambience & Lighting -->
@@ -36,7 +40,7 @@
         </div>
 
         <div class="slide-indicator">
-            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">12</span>
+            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">16</span>
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
@@ -48,27 +52,46 @@
                 <i class="fa-solid fa-sun" id="themeIcon"></i>
                 <span id="themeText">الوضع النهاري</span>
             </button>
-            <button class="nav-btn" id="btnPrev" title="الشريحة السابقة (السهم الأيمن)"><i class="fa-solid fa-chevron-right"></i> السابق</button>
-            <button class="nav-btn" id="btnNext" title="الشريحة التالية (السهم الأيسر / المسافة)">التالي <i class="fa-solid fa-chevron-left"></i></button>
-            <button class="nav-btn icon-only" id="btnFullscreen" title="ملء الشاشة"><i class="fa-solid fa-expand"></i></button>
-            <button class="nav-btn icon-only" id="btnAutoplay" title="تشغيل تلقائي"><i class="fa-solid fa-play"></i></button>
+            <button class="nav-btn" id="btnPrev" title="الشريحة السابقة (السهم الأيمن)"><i
+                    class="fa-solid fa-chevron-right"></i> السابق</button>
+            <button class="nav-btn" id="btnNext" title="الشريحة التالية (السهم الأيسر / المسافة)">التالي <i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="nav-btn icon-only" id="btnFullscreen" title="ملء الشاشة"><i
+                    class="fa-solid fa-expand"></i></button>
+            <button class="nav-btn icon-only" id="btnAutoplay" title="تشغيل تلقائي"><i
+                    class="fa-solid fa-play"></i></button>
         </div>
     </header>
 
-    <!-- Slide Tabs Navigation Strip (12 Slides) -->
+    <!-- Slide Tabs Navigation Strip (16 Slides) -->
     <nav class="slides-quick-nav">
-        <button class="tab-btn active" data-slide="0"><i class="fa-solid fa-house"></i> 1. الملخص العام</button>
-        <button class="tab-btn" data-slide="1"><i class="fa-solid fa-chart-pie"></i> 2. الموقف الكلي (2241)</button>
-        <button class="tab-btn" data-slide="2"><i class="fa-solid fa-file-contract"></i> 3. الحالات الصالحة (1264)</button>
-        <button class="tab-btn" data-slide="3"><i class="fa-solid fa-gavel"></i> 4. غير الصالحة (977)</button>
-        <button class="tab-btn" data-slide="4"><i class="fa-solid fa-scale-balanced"></i> 5. تفصيل الإجراءات الرادعة</button>
-        <button class="tab-btn" data-slide="5"><i class="fa-solid fa-satellite-dish"></i> 6. المنصة الوطنية (168/2025)</button>
-        <button class="tab-btn" data-slide="6"><i class="fa-solid fa-shield-halved"></i> 7. الموافقات والمساحة العسكرية</button>
-        <button class="tab-btn" data-slide="7"><i class="fa-solid fa-users-viewfinder"></i> 8. الإرشاد بالأقاليم (922)</button>
-        <button class="tab-btn" data-slide="8"><i class="fa-solid fa-map-location"></i> 9. الأقاليم (قناة - وسطى - شرق)</button>
-        <button class="tab-btn" data-slide="9"><i class="fa-solid fa-map-marked"></i> 10. الأقاليم (عليا - وسط - غرب)</button>
-        <button class="tab-btn" data-slide="10"><i class="fa-solid fa-handshake-simple"></i> 11. المعوقات والحلول الميدانية</button>
-        <button class="tab-btn" data-slide="11"><i class="fa-solid fa-list-check"></i> 12. التكليفات وخطة العمل</button>
+        <button class="tab-btn active" data-slide="0"><i class="fa-solid fa-house"></i> 1. الملخص والمؤشرات</button>
+        <button class="tab-btn" data-slide="1"><i class="fa-solid fa-chart-pie"></i> 2. المعاينات الكلية (2241)</button>
+        <button class="tab-btn" data-slide="2"><i class="fa-solid fa-file-contract"></i> 3. الصالحة والعقود
+            (1264)</button>
+        <button class="tab-btn" data-slide="3"><i class="fa-solid fa-gavel"></i> 4. غير الصالحة والردع (977)</button>
+        <button class="tab-btn" data-slide="4"><i class="fa-solid fa-table-cells"></i> 5. لوحة المعاينات
+            الإقليمية</button>
+        <button class="tab-btn" data-slide="5"><i class="fa-solid fa-certificate"></i> 6. التراخيص الصادرة
+            (1979)</button>
+        <button class="tab-btn" data-slide="6"><i class="fa-solid fa-chart-line"></i> 7. التعديات والنبض اليومي
+            (5062)</button>
+        <button class="tab-btn" data-slide="7"><i class="fa-solid fa-satellite-dish"></i> 8. المنصة الوطنية
+            (168/2025)</button>
+        <button class="tab-btn" data-slide="8"><i class="fa-solid fa-id-card-clip"></i> 9. المساحة العسكرية وكارت
+            الوصف</button>
+        <button class="tab-btn" data-slide="9"><i class="fa-solid fa-microchip"></i> 10. فلسفة المنظومة (رسم
+            متحرك)</button>
+        <button class="tab-btn" data-slide="10"><i class="fa-solid fa-users-viewfinder"></i> 11. الإرشاد الميداني
+            (922)</button>
+        <button class="tab-btn" data-slide="11"><i class="fa-solid fa-map-location"></i> 12. أقاليم (قناة - وسطى -
+            شرق)</button>
+        <button class="tab-btn" data-slide="12"><i class="fa-solid fa-map-marked"></i> 13. أقاليم (عليا - وسط -
+            غرب)</button>
+        <button class="tab-btn" data-slide="13"><i class="fa-solid fa-handshake-simple"></i> 14. المعوقات
+            والحلول</button>
+        <button class="tab-btn" data-slide="14"><i class="fa-solid fa-list-check"></i> 15. التكليفات العاجلة</button>
+        <button class="tab-btn" data-slide="15"><i class="fa-solid fa-award"></i> 16. الخلاصة والاعتماد</button>
     </nav>
 
     <!-- Presentation Main Viewport -->
@@ -82,11 +105,13 @@
                         <i class="fa-solid fa-shield-halved"></i> الإدارة المركزية لحماية وتنمية أملاك الصرف
                     </div>
                     <h1 class="hero-title">
-                        التقرير التنفيذي الاستراتيجي لمتابعة <br>
-                        <span class="gradient-text">منظومة تقنين أراضي الدولة</span>
+                        لوحة القيادة التنفيذية لقياس الأداء ومتابعة <br>
+                        <span class="gradient-text">منظومات تقنين وأملاك الصرف</span>
                     </h1>
                     <p class="hero-desc">
-                        عرض تحليلي مفصل ومقروء إدارياً لقياس نتائج المعاينات الميدانية الكلية (<strong>2,241 حالة</strong>)، وتحديثات طلبات المنصة الوطنية 168 لسنة 2025، ومتابعة تحويل الممتنعين (<strong>922 حالة</strong>) عبر الأقاليم الستة مع حزمة التكليفات العاجلة.
+                        تحليل رقمي مفصل لقياس نتائج <strong>المعاينات الكلية (2,241 حالة)</strong>، وحوكمة
+                        <strong>المنظومة الموازية (1,979 ترخيص و 5,062 تعدياً)</strong>، مع تقييم أداء الأقاليم الستة
+                        ومتابعة تحويل الممتنعين والمنصة الوطنية 168 لسنة 2025.
                     </p>
 
                     <!-- Strategic Key Metrics Cards -->
@@ -95,7 +120,7 @@
                             <div class="kpi-icon"><i class="fa-solid fa-clipboard-list"></i></div>
                             <div class="kpi-data">
                                 <span class="kpi-value counter" data-target="2241">0</span>
-                                <span class="kpi-label">إجمالي الحالات المعاينة (100%)</span>
+                                <span class="kpi-label">إجمالي المعاينات الكلية</span>
                             </div>
                         </div>
                         <div class="kpi-card accent-emerald">
@@ -105,25 +130,39 @@
                                 <span class="kpi-label">حالات صالحة للتعاقد (56.4%)</span>
                             </div>
                         </div>
-                        <div class="kpi-card accent-amber">
+                        <div class="kpi-card accent-rose">
                             <div class="kpi-icon"><i class="fa-solid fa-gavel"></i></div>
                             <div class="kpi-data">
                                 <span class="kpi-value counter" data-target="977">0</span>
-                                <span class="kpi-label">غير صالحة ومستهدفة بالإجراءات (43.6%)</span>
+                                <span class="kpi-label">غير صالحة ومستهدفة بالردع</span>
                             </div>
                         </div>
                         <div class="kpi-card accent-cyan">
-                            <div class="kpi-icon"><i class="fa-solid fa-map-marked-alt"></i></div>
+                            <div class="kpi-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div class="kpi-data">
+                                <span class="kpi-value counter" data-target="1979">0</span>
+                                <span class="kpi-label">تراخيص صادرة من الأقاليم</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card accent-amber">
+                            <div class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="kpi-data">
+                                <span class="kpi-value counter" data-target="5062">0</span>
+                                <span class="kpi-label">تعديات مرسلة بالمنظومة الموازية</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card accent-purple">
+                            <div class="kpi-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                             <div class="kpi-data">
                                 <span class="kpi-value counter" data-target="6">0</span>
-                                <span class="kpi-label">أقاليم جغرافية مشمولة بالإرشاد الميداني</span>
+                                <span class="kpi-label">أقاليم جغرافية مشمولة بالحوكمة</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="action-row">
                         <button class="btn btn-primary" onclick="goToSlide(1)">
-                            بدء استعراض التقرير المفصل <i class="fa-solid fa-arrow-left"></i>
+                            بدء استعراض القياس التحليلي <i class="fa-solid fa-arrow-left"></i>
                         </button>
                         <button class="btn btn-glass" onclick="window.print()">
                             <i class="fa-solid fa-print"></i> طباعة التقرير PDF
@@ -135,7 +174,8 @@
                     <div class="hero-image-wrapper">
                         <img src="hero.jpg" alt="منظومة تقنين أراضي الدولة" class="hero-img">
                         <div class="hero-overlay-tag">
-                            <i class="fa-solid fa-circle-check text-success"></i> حوكمة رقمية متكاملة لربط بيانات المعاينة والإرشاد والتعاقد
+                            <i class="fa-solid fa-circle-check text-success"></i> حوكمة رقمية متكاملة لربط بيانات
+                            المعاينة والتراخيص والإرشاد والتعاقد
                         </div>
                     </div>
                 </div>
@@ -147,9 +187,11 @@
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-chart-pie"></i> المحور الأول: الرؤية الكلية للمعاينات</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-chart-pie"></i> المحور الأول: منظومة
+                            المعاينات الكلية</span>
                         <h2>الموقف العام الشامل لنتائج معاينات منظومة التقنين (2,241 حالة)</h2>
-                        <p class="slide-brief">التصنيف الفني الكلي لجميع حالات المخالفات التي تم الانتهاء من إجراء المعاينة الميدانية الكاملة لها بنسبة إنجاز 100%</p>
+                        <p class="slide-brief">التصنيف الفني الكلي لجميع حالات المخالفات التي تم الانتهاء من إجراء
+                            المعاينة الميدانية الكاملة لها بنسبة إنجاز 100%</p>
                     </div>
                     <div class="chart-selection-badge">
                         <i class="fa-solid fa-chart-pie"></i> Donut Chart (تكوين الكل والأجزاء)
@@ -179,7 +221,7 @@
                                         <th>التصنيف الفني</th>
                                         <th>العدد الإجمالي</th>
                                         <th>النسبة المئوية</th>
-                                        <th>المسار الإداري</th>
+                                        <th>المسار الإداري والتنفيذي</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -187,7 +229,7 @@
                                         <td><span class="badge badge-emerald">صالحة للتقنين والتعاقد</span></td>
                                         <td class="highlight-num">1,264 حالة</td>
                                         <td><strong>56.4%</strong></td>
-                                        <td>إبرام العقود وتحصيل الرسوم ومقابل الانتفاع</td>
+                                        <td>إبرام العقود وتحصيل الرسوم ومقابل الانتفاع القانوني</td>
                                     </tr>
                                     <tr>
                                         <td><span class="badge badge-rose">غير صالحة للتعاقد</span></td>
@@ -208,7 +250,9 @@
                         <div class="insight-box">
                             <div class="insight-icon"><i class="fa-solid fa-circle-info"></i></div>
                             <div class="insight-text">
-                                <strong>الرسالة الإدارية الأساسية:</strong> تشكل الحالات الصالحة للتعاقد النسبة الأكبر (56.4%) بإجمالي 1,264 حالة تمثل وعاءً استثمارياً وقانونياً مستهدفاً للتحصيل، بينما تتطلب نسبة 43.6% تدخلاً رادعاً لحماية حرم المصارف العامة.
+                                <strong>الرسالة الإدارية الأساسية:</strong> تشكل الحالات الصالحة للتعاقد النسبة الأكبر
+                                (56.4%) بإجمالي 1,264 حالة تمثل وعاءً استثمارياً وقانونياً مستهدفاً للتحصيل، بينما تتطلب
+                                نسبة 43.6% تدخلاً رادعاً لحماية حرم ومنافع المصارف العامة.
                             </div>
                         </div>
                     </div>
@@ -221,53 +265,87 @@
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-file-contract"></i> المحور الثاني: الحالات الصالحة للتعاقد</span>
-                        <h2>تفكيك وتحليل موقف الحالات الصالحة للتعاقد (1,264 حالة)</h2>
-                        <p class="slide-brief">المقارنة الدقيقة بين العقود المبرمة فعلياً والمواطنين الممتنعين المستهدفين باجتماعات الإرشاد</p>
+                        <span class="slide-subtitle"><i class="fa-solid fa-file-contract"></i> المحور الثاني: الحالات
+                            الصالحة للتعاقد</span>
+                        <h2>تفكيك الحالات الصالحة (1,264 حالة) وموقف العقود والممتنعين إقليمياً</h2>
+                        <p class="slide-brief">المقارنة الدقيقة بين العقود المبرمة فعلياً (342 عقداً) والمواطنين
+                            الممتنعين (922 حالة) موزعة بالأرقام على الأقاليم الستة</p>
                     </div>
                     <div class="chart-selection-badge">
-                        <i class="fa-solid fa-chart-column"></i> Column Chart (مقارنة العقود مع الممتنعين)
+                        <i class="fa-solid fa-chart-column"></i> Regional Clustered Bar Chart
                     </div>
                 </div>
 
                 <div class="grid-2-col">
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-chart-column"></i> مقارنة حجم العقود المنجزة مقابل الممتنعين</h3>
+                            <h3><i class="fa-solid fa-chart-column"></i> مقارنة العقود المبرمة (342) مقابل الممتنعين
+                                (922) بالأقاليم</h3>
                             <span class="badge badge-amber">فجوة التحصيل</span>
                         </div>
                         <div class="chart-container tall">
-                            <canvas id="chartValidBreakdown"></canvas>
+                            <canvas id="chartValidRegional"></canvas>
                         </div>
                     </div>
 
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-list-check"></i> تفصيل الموقف التنفيذي للحالات الصالحة</h3>
+                            <h3><i class="fa-solid fa-list-check"></i> تفصيل الموقف التنفيذي بالأقاليم الستة</h3>
                             <span class="badge badge-cyan">تحليل الأداء</span>
                         </div>
                         <div class="exec-table-wrapper">
                             <table class="exec-table">
                                 <thead>
                                     <tr>
-                                        <th>الموقف الراهن</th>
-                                        <th>العدد</th>
-                                        <th>النسبة من الصالح</th>
-                                        <th>الإجراء المتبع والمطلوب</th>
+                                        <th>الإقليم الجغرافي</th>
+                                        <th>عقود مبرمة (342)</th>
+                                        <th>ممتنعون (922)</th>
+                                        <th>إجمالي الصالح</th>
+                                        <th>نسبة التعاقد</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><span class="badge badge-cyan">عقود تم إبرامها بالفعل</span></td>
-                                        <td class="highlight-num">342 عقداً</td>
-                                        <td><strong>27.1%</strong></td>
-                                        <td>متابعة سداد الأقساط الدورية والالتزام ببنود العقد</td>
+                                        <td><strong>مصر الوسطى</strong></td>
+                                        <td class="highlight-num">200 عقد</td>
+                                        <td>213 ممتنع</td>
+                                        <td>413 حالة</td>
+                                        <td><span class="badge badge-teal">48.4%</span></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-amber">ممتنعون عن التعاقد</span></td>
-                                        <td class="highlight-num">922 حالة</td>
-                                        <td><strong>72.9%</strong></td>
-                                        <td>حملات إرشادية مكثفة وإنذارات رسمية بالسحب والإزالة</td>
+                                        <td><strong>شرق الدلتا</strong></td>
+                                        <td class="highlight-num">108 عقد</td>
+                                        <td>471 ممتنع</td>
+                                        <td>579 حالة</td>
+                                        <td><span class="badge badge-cyan">18.7%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>وسط الدلتا</strong></td>
+                                        <td class="highlight-num">22 عقد</td>
+                                        <td>114 ممتنع</td>
+                                        <td>136 حالة</td>
+                                        <td><span class="badge badge-amber">16.2%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>القناة وسيناء</strong></td>
+                                        <td class="highlight-num">7 عقود</td>
+                                        <td>4 ممتنعين</td>
+                                        <td>11 حالة</td>
+                                        <td><span class="badge badge-emerald">63.6%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مصر العليا</strong></td>
+                                        <td class="highlight-num">3 عقود</td>
+                                        <td>52 ممتنع</td>
+                                        <td>55 حالة</td>
+                                        <td><span class="badge badge-rose">5.5%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>غرب الدلتا</strong></td>
+                                        <td class="highlight-num">2 عقد</td>
+                                        <td>67 ممتنع</td>
+                                        <td>69 حالة</td>
+                                        <td><span class="badge badge-rose">2.9%</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -276,7 +354,9 @@
                         <div class="insight-box">
                             <div class="insight-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
                             <div class="insight-text">
-                                <strong>تحدي الفجوة التعاقدية (72.9% ممتنعون):</strong> يتركز التحدي الأكبر للهيئة في تحويل الـ 922 حالة ممتنعة إلى عقود رسمية، حيث يمثلون 72.9% من إجمالي الحالات المقبولة فنياً، وهو ما استدعى خطة الإرشاد الميداني الشاملة بالأقاليم.
+                                <strong>تحدي الفجوة التعاقدية (72.9% ممتنعون):</strong> يتركز 74.2% من إجمالي الممتنعين
+                                في إقليمي شرق الدلتا (471) ومصر الوسطى (213)، مما يجعلهما الأولوية القصوى لحملات الإرشاد
+                                الميداني وإنذارات السحب والإزالة.
                             </div>
                         </div>
                     </div>
@@ -284,64 +364,92 @@
             </div>
         </section>
 
-        <!-- ================= SLIDE 4: Non-Valid Cases Overview (977 Cases) ================= -->
+        <!-- ================= SLIDE 4: Non-Valid Cases Breakdown (977 Cases) ================= -->
         <section class="slide" id="slide-3">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-gavel"></i> المحور الثالث: الحالات غير الصالحة للتعاقد</span>
-                        <h2>الموقف الإجرائي الكلي للحالات غير الصالحة للتعاقد (977 حالة)</h2>
-                        <p class="slide-brief">حصر مسارات التعامل القانوني والميداني مع التعديات غير القابلة للتقنين لضمان استرداد أصول ومصارف الدولة</p>
+                        <span class="slide-subtitle"><i class="fa-solid fa-gavel"></i> المحور الثالث: الحالات غير
+                            الصالحة للتعاقد</span>
+                        <h2>الموقف الإجرائي الكلي للحالات غير الصالحة (977 حالة) وتوزيعها الإقليمي</h2>
+                        <p class="slide-brief">حصر دقيق للمحاضر وقرارات الإزالة (764)، الإزالات الفعلية واسترداد الأراضي
+                            فضاء (185)، وحالات إعادة النظر (28) بالأقاليم</p>
                     </div>
                     <div class="chart-selection-badge">
-                        <i class="fa-solid fa-bars-staggered"></i> Horizontal Bar Chart (توزيع القرارات)
+                        <i class="fa-solid fa-bars-staggered"></i> Regional Stacked Bar Chart
                     </div>
                 </div>
 
                 <div class="grid-2-col">
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-scale-balanced"></i> توزيع الإجراءات الميدانية والقانونية المتخذة</h3>
+                            <h3><i class="fa-solid fa-scale-balanced"></i> التوزيع الإقليمي للإجراءات الرادعة والاسترداد
+                                (977)</h3>
                             <span class="badge badge-purple">حجم القرارات</span>
                         </div>
                         <div class="chart-container tall">
-                            <canvas id="chartInvalidActions"></canvas>
+                            <canvas id="chartInvalidRegional"></canvas>
                         </div>
                     </div>
 
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-table"></i> البيان التفصيلي للإجراءات المتخذة (977)</h3>
+                            <h3><i class="fa-solid fa-table"></i> البيان الإقليمي التفصيلي للإجراءات المتخذة (977)</h3>
                             <span class="badge badge-rose">قرارات الحسم</span>
                         </div>
                         <div class="exec-table-wrapper">
                             <table class="exec-table">
                                 <thead>
                                     <tr>
-                                        <th>طبيعة الإجراء التنفيذي</th>
-                                        <th>العدد</th>
-                                        <th>النسبة</th>
-                                        <th>الأثر الميداني والقانوني</th>
+                                        <th>الإقليم الجغرافي</th>
+                                        <th>إجراءات وقرارات إزالة (764)</th>
+                                        <th>إزالة فعلية (أرض فضاء 185)</th>
+                                        <th>إعادة نظر (صالح 28)</th>
+                                        <th>الإجمالي غير الصالح</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><span class="badge badge-purple">إجراء قانوني (محاضر / قرارات)</span></td>
-                                        <td class="highlight-num">764</td>
-                                        <td><strong>78.2%</strong></td>
-                                        <td>تحرير محاضر إثبات مخالفة واستصدار قرارات إزالة رسمية</td>
+                                        <td><strong>مصر الوسطى</strong></td>
+                                        <td class="highlight-num">323</td>
+                                        <td>75</td>
+                                        <td>9</td>
+                                        <td><strong>407 حالة</strong></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-rose">إزالة فعلية للمخالفة</span></td>
-                                        <td class="highlight-num">185</td>
-                                        <td><strong>18.9%</strong></td>
-                                        <td>تنفيذ الإزالة على الأرض واسترداد الأرض للدولة بالكامل</td>
+                                        <td><strong>القناة وسيناء</strong></td>
+                                        <td class="highlight-num">200</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td><strong>201 حالة</strong></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="badge badge-emerald">إعادة نظر (أصبحت صالحة)</span></td>
-                                        <td class="highlight-num">28</td>
-                                        <td><strong>2.9%</strong></td>
-                                        <td>استيفاء الشروط بعد المعاينة المستجدة ونقلها لمسار التعاقد</td>
+                                        <td><strong>غرب الدلتا</strong></td>
+                                        <td class="highlight-num">172</td>
+                                        <td>25</td>
+                                        <td>0</td>
+                                        <td><strong>197 حالة</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>شرق الدلتا</strong></td>
+                                        <td class="highlight-num">61</td>
+                                        <td>57</td>
+                                        <td>19</td>
+                                        <td><strong>137 حالة</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>وسط الدلتا</strong></td>
+                                        <td class="highlight-num">4</td>
+                                        <td>24</td>
+                                        <td>0</td>
+                                        <td><strong>28 حالة</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مصر العليا</strong></td>
+                                        <td class="highlight-num">4</td>
+                                        <td>2</td>
+                                        <td>0</td>
+                                        <td><strong>6 حالات</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -350,7 +458,9 @@
                         <div class="insight-box">
                             <div class="insight-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="insight-text">
-                                <strong>تكامل الردع وتصحيح المسار:</strong> نجحت الهيئة في تنفيذ 185 إزالة فعلية فورية وتثبيت 764 قرار إزالة قانوني، مع مراعاة البعد الفني بإعادة النظر في 28 حالة ثبتت مطابقتها بعد التدقيق المساحي.
+                                <strong>تكامل الردع وتصحيح المسار:</strong> نجحت الهيئة في استرداد 185 قطعة أرض فضاء تم
+                                تنفيذ الإزالة الفعلية عليها، وتثبيت 764 قرار إزالة ومحضر رسمي، مع مرونة فنية بإعادة
+                                تصنيف 28 حالة صالحة بشرق الدلتا (19) ومصر الوسطى (9).
                             </div>
                         </div>
                     </div>
@@ -358,81 +468,291 @@
             </div>
         </section>
 
-        <!-- ================= SLIDE 5: Deep-Dive into Non-Valid Actions ================= -->
+        <!-- ================= SLIDE 5: Regional Master Scorecard (2241 Cases) ================= -->
         <section class="slide" id="slide-4">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-scale-balanced"></i> تفصيل الإجراءات الرادعة وتصحيح المسار</span>
-                        <h2>التفصيل النوعي للإجراءات المتخذة حيال الـ (977 حالة غير صالحة)</h2>
-                        <p class="slide-brief">الشرح الإداري والقانوني الدقيق لكل مسار إجرائي وآليات التنفيذ المتبعة على الأرض</p>
+                        <span class="slide-subtitle"><i class="fa-solid fa-table-cells"></i> المحور الرابع: لوحة التقييم
+                            الإقليمية الشاملة</span>
+                        <h2>مصفوفة الأداء والتصنيف الكلي للمعاينات بالأقاليم الستة (2,241 حالة)</h2>
+                        <p class="slide-brief">جدول تحليلي موحد يربط كافة الحالات (عقود + ممتنعين + إزالات فعلية + محاضر
+                            وقرارات + إعادة نظر) لقياس كفاءة كل إقليم</p>
                     </div>
                     <div class="chart-selection-badge">
-                        <i class="fa-solid fa-layer-group"></i> Detailed Action Breakdown Cards
+                        <i class="fa-solid fa-crosshairs"></i> Regional Master KPI Matrix
                     </div>
                 </div>
 
-                <div class="grid-3-col">
-                    <!-- Column 1: Legal Actions -->
-                    <div class="stat-banner purple" style="flex-direction: column; align-items: flex-start;">
-                        <div style="display: flex; align-items: center; gap: 14px; width: 100%;">
-                            <div class="stat-banner-icon"><i class="fa-solid fa-file-circle-exclamation"></i></div>
-                            <div class="stat-banner-content">
-                                <div class="num">764 <small>حالة (78.2%)</small></div>
-                                <h4>محاضر وقرارات إزالة رسمية</h4>
-                            </div>
-                        </div>
-                        <p style="margin-top: 10px;">
-                            <strong>الإجراء المتبع:</strong> تم تحرير محاضر إثبات التعدي ومخالفة القانون، واستصدار قرارات إزالة نهائية معتمدة، مع إخطار الأجهزة الأمنية والمحليات لإدراجها في موجات الإزالة المتتالية، ومطالبة المخالفين بمقابل الانتفاع بالحجز الإداري.
-                        </p>
+                <div class="glass-card" style="padding: 16px 20px;">
+                    <div class="exec-table-wrapper" style="margin-bottom: 8px;">
+                        <table class="exec-table">
+                            <thead>
+                                <tr style="background: var(--table-header-bg);">
+                                    <th>الإقليم الجغرافي</th>
+                                    <th>إجمالي المعاينات</th>
+                                    <th>عقود مبرمة</th>
+                                    <th>ممتنعون</th>
+                                    <th>إزالة فعلية (فضاء)</th>
+                                    <th>قرارات إزالة ومحاضر</th>
+                                    <th>إعادة نظر (صالح)</th>
+                                    <th>نسبة الصلاحية</th>
+                                    <th>مؤشر الأداء التنفيذي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. مصر الوسطى</strong></td>
+                                    <td class="highlight-num">820 حالة</td>
+                                    <td>200</td>
+                                    <td>213</td>
+                                    <td>75</td>
+                                    <td>323</td>
+                                    <td>9</td>
+                                    <td>50.4%</td>
+                                    <td><span class="badge badge-teal">أعلى إبرام عقود وإزالات</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. شرق الدلتا</strong></td>
+                                    <td class="highlight-num">716 حالة</td>
+                                    <td>108</td>
+                                    <td>471</td>
+                                    <td>57</td>
+                                    <td>61</td>
+                                    <td>19</td>
+                                    <td>80.9%</td>
+                                    <td><span class="badge badge-cyan">أعلى كتلة ممتنعين مستهدفة</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. غرب الدلتا</strong></td>
+                                    <td class="highlight-num">266 حالة</td>
+                                    <td>2</td>
+                                    <td>67</td>
+                                    <td>25</td>
+                                    <td>172</td>
+                                    <td>0</td>
+                                    <td>25.9%</td>
+                                    <td><span class="badge badge-amber">يتطلب حسم التسعير والمدد</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4. القناة وسيناء</strong></td>
+                                    <td class="highlight-num">212 حالة</td>
+                                    <td>7</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>200</td>
+                                    <td>0</td>
+                                    <td>5.2%</td>
+                                    <td><span class="badge badge-emerald">أعلى نسبة استجابة تعاقدية</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5. وسط الدلتا</strong></td>
+                                    <td class="highlight-num">164 حالة</td>
+                                    <td>22</td>
+                                    <td>114</td>
+                                    <td>24</td>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>82.9%</td>
+                                    <td><span class="badge badge-purple">فرصة تحصيل واعدة (مهل)</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>6. مصر العليا</strong></td>
+                                    <td class="highlight-num">61 حالة</td>
+                                    <td>3</td>
+                                    <td>52</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                    <td>0</td>
+                                    <td>90.2%</td>
+                                    <td><span class="badge badge-rose">رفض مرتفع يتطلب حسم رادع</span></td>
+                                </tr>
+                                <tr style="background: var(--table-header-bg); font-weight: 900;">
+                                    <td><strong>الإجمالي العام للهيئة</strong></td>
+                                    <td class="highlight-num"><strong>2,241 حالة</strong></td>
+                                    <td><strong>342</strong></td>
+                                    <td><strong>922</strong></td>
+                                    <td><strong>185</strong></td>
+                                    <td><strong>764</strong></td>
+                                    <td><strong>28</strong></td>
+                                    <td><strong>56.4%</strong></td>
+                                    <td><span class="badge badge-teal">حوكمة شاملة 100%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <!-- Column 2: Actual Removals -->
-                    <div class="stat-banner rose" style="flex-direction: column; align-items: flex-start;">
-                        <div style="display: flex; align-items: center; gap: 14px; width: 100%;">
-                            <div class="stat-banner-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-                            <div class="stat-banner-content">
-                                <div class="num">185 <small>حالة (18.9%)</small></div>
-                                <h4>إزالة فعلية للمخالفة والتعدي</h4>
-                            </div>
+                    <div class="insight-box" style="margin-top: 6px;">
+                        <div class="insight-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <div class="insight-text">
+                            <strong>التحليل الاستراتيجي للأقاليم:</strong> يتركز 68.5% من إجمالي حجم العمل بالهيئة في
+                            إقليمين رئيسيين هما مصر الوسطى (820 حالة) وشرق الدلتا (716 حالة)، بينما يمثل إقليم وسط
+                            الدلتا أعلى فرصة استثمارية محتملة بنسبة صلاحية 82.9%.
                         </div>
-                        <p style="margin-top: 10px;">
-                            <strong>الإجراء المتبع:</strong> تم تنفيذ الإزالة على الطبيعة بالتنسيق مع قوات إنفاذ القانون والمعدات الميكانيكية التابعة للهيئة، وإعادة جسور ومنافع المصارف إلى حالتها الأصلية لمنع إعاقة تدفق مياه الصرف الزراعي أو التأثير على كفاءة الشبكة.
-                        </p>
-                    </div>
-
-                    <!-- Column 3: Reconsidered & Converted -->
-                    <div class="stat-banner emerald" style="flex-direction: column; align-items: flex-start;">
-                        <div style="display: flex; align-items: center; gap: 14px; width: 100%;">
-                            <div class="stat-banner-icon"><i class="fa-solid fa-arrows-spin"></i></div>
-                            <div class="stat-banner-content">
-                                <div class="num">28 <small>حالة (2.9%)</small></div>
-                                <h4>إعادة نظر وأصبحت صالحة للتعاقد</h4>
-                            </div>
-                        </div>
-                        <p style="margin-top: 10px;">
-                            <strong>الإجراء المتبع:</strong> بناءً على التظلمات المقدمة وإعادة الفحص المساحي الميداني الدقيق وتعديل الوضع المكاني بما لا يتعارض مع منافع الصرف، تقرر تصحيح تصنيف هذه الحالات ونقلها رسمياً إلى جدول الحالات الصالحة لإبرام العقود.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="insight-box" style="margin-top: 16px;">
-                    <div class="insight-icon"><i class="fa-solid fa-gavel"></i></div>
-                    <div class="insight-text">
-                        <strong>التوجيه الرقابي:</strong> يتم حصر كافة الحالات الصادر بشأنها قرارات إزالة (764 حالة) ومتابعة تنفيذها مع جهات الاختصاص أسبوعياً لضمان عدم ترسيخ أي أمر واقع على أملاك الصرف.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SLIDE 6: National Platform 168 / 2025 Workflow ================= -->
+        <!-- ================= SLIDE 6: Parallel System - Licenses (1979 Cases) ================= -->
         <section class="slide" id="slide-5">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-satellite-dish"></i> المحور الرابع: المنظومة الوطنية المستحدثة</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-certificate"></i> المحور الخامس: المنظومة
+                            الموازية للرقابة المستمرة</span>
+                        <h2>موقف التراخيص الصادرة من الأقاليم (1,979 ترخيصاً) ومسار إدخالها</h2>
+                        <p class="slide-brief">حوكمة ومتابعة التراخيص الصادرة للانتفاع بأراضي وأملاك الصرف: ما تم إدخاله
+                            بالمنظومة وما يخضع للمراجعة</p>
+                    </div>
+                    <div class="chart-selection-badge">
+                        <i class="fa-solid fa-filter-circle-dollar"></i> Funnel & Regional Distribution
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <!-- Left: Funnel & Key Stats -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-diagram-project"></i> قمع الإنجاز الرقمي للتراخيص (1,979)</h3>
+                            <span class="badge badge-cyan">معدل الإدخال</span>
+                        </div>
+
+                        <div class="funnel-container">
+                            <div class="funnel-step">
+                                <div class="funnel-info">
+                                    <div class="funnel-badge-num">1</div>
+                                    <div>
+                                        <div class="funnel-title">إجمالي التراخيص الصادرة من الأقاليم</div>
+                                        <div class="funnel-sub">حصر شامل للتراخيص الممنوحة للانتفاع بأملاك الصرف</div>
+                                    </div>
+                                </div>
+                                <div class="funnel-stat">1,979 ترخيصاً</div>
+                            </div>
+
+                            <div class="funnel-step" style="border-right: 4px solid var(--emerald-green);">
+                                <div class="funnel-info">
+                                    <div class="funnel-badge-num"
+                                        style="background: var(--emerald-bg); color: var(--emerald-green);"><i
+                                            class="fa-solid fa-check"></i></div>
+                                    <div>
+                                        <div class="funnel-title">تم إدخالها وتدقيقها بالمنظومة الرقمية</div>
+                                        <div class="funnel-sub">تراخيص مستوفية تم ربطها رقمياً بالحسابات والمطالبات
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-stat" style="color: var(--emerald-green);">1,330 ترخيصاً (67.2%)
+                                </div>
+                            </div>
+
+                            <div class="funnel-step" style="border-right: 4px solid var(--gold-amber);">
+                                <div class="funnel-info">
+                                    <div class="funnel-badge-num"
+                                        style="background: var(--gold-bg); color: var(--gold-amber);"><i
+                                            class="fa-solid fa-clock-rotate-left"></i></div>
+                                    <div>
+                                        <div class="funnel-title">قيد المراجعة والتدقيق بالرجوع للأقاليم</div>
+                                        <div class="funnel-sub">استكمال المستندات والإحداثيات لإدخال الصالح منها فوراً
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-stat" style="color: var(--gold-amber);">649 ترخيصاً (32.8%)</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-box" style="margin-top: 8px;">
+                            <div class="insight-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                            <div class="insight-text">
+                                <strong>المستهدف العاجل:</strong> إلزام لجان التراخيص بالأقاليم بإنهاء تدقيق الـ 649
+                                ترخيصاً المتبقية خلال 10 أيام عمل لرفع نسبة الحوكمة إلى 100%.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Regional Distribution of Licenses -->
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-chart-bar"></i> توزيع التراخيص الصادرة بالأقاليم الستة</h3>
+                            <span class="badge badge-teal">1979 ترخيصاً</span>
+                        </div>
+                        <div class="chart-container tall">
+                            <canvas id="chartLicensesRegional"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 7: Parallel System - Daily Encroachments Deficit ================= -->
+        <section class="slide" id="slide-6">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <div class="slide-title-group">
+                        <span class="slide-subtitle"><i class="fa-solid fa-chart-line"></i> المحور السادس: الرقابة على
+                            التعديات ونبض الإرسال</span>
+                        <h2>تدفق رصد التعديات بالمنظومة الموازية وتحليل فجوة المستهدف (150/يوم)</h2>
+                        <p class="slide-brief">استعراض تدني معدلات الإرسال اليومي من الإدارات والأقاليم خلال الفترة من
+                            1-8 وحتى تاريخه بإجمالي 5,062 تعدياً مسجلاً</p>
+                    </div>
+                    <div class="chart-selection-badge">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Target Gap & Daily Run Rate
+                    </div>
+                </div>
+
+                <!-- Alert Banner for Deficit -->
+                <div class="target-alert-card">
+                    <div class="target-alert-left">
+                        <i class="fa-solid fa-circle-exclamation target-alert-icon"></i>
+                        <div>
+                            <div class="target-alert-title">تنبيه إداري رقابي: تدني ملحوظ في معدلات الإرسال اليومي
+                                للتعديات بالأقاليم</div>
+                            <div class="target-alert-desc">المستهدف المتفق عليه هو إرسال حوالي <strong>150 تعدياً
+                                    يومياً</strong> لحالات "ما عاد عليه بالنفع"، بينما سجلت معدلات الإرسال تراجعاً
+                                كبيراً وصل لأرقام متدنية جداً.</div>
+                        </div>
+                    </div>
+                    <div class="target-kpi-pill">
+                        المستهدف: 150 حالة/يوم <br>
+                        <small style="font-size: 0.8rem;">فجوة إرسال حرجة</small>
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-wave-square"></i> منحنى التدفق اليومي للتعديات مقابل خط المستهدف
+                                (150)</h3>
+                            <span class="badge badge-rose">متابعة يومية 1-8 إلى 18-8</span>
+                        </div>
+                        <div class="chart-container" style="min-height: 240px;">
+                            <canvas id="chartDailyEncroachmentsTarget"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-chart-pie"></i> إجمالي التعديات المرسلة بالأقاليم (5,062 حالة)
+                            </h3>
+                            <span class="badge badge-amber">تراكمي المنظومة الموازية</span>
+                        </div>
+                        <div class="chart-container" style="min-height: 240px;">
+                            <canvas id="chartEncroachmentsRegional"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 8: National Platform 168 / 2025 Workflow ================= -->
+        <section class="slide" id="slide-7">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <div class="slide-title-group">
+                        <span class="slide-subtitle"><i class="fa-solid fa-satellite-dish"></i> المحور السابع: المنظومة
+                            الوطنية المستحدثة</span>
                         <h2>منظومة المنصة الوطنية الجديدة (القانون رقم 168 لسنة 2025)</h2>
-                        <p class="slide-brief">مسار معالجة الطلبات الواردة حديثاً عبر المنصة الوطنية الموحدة ومؤشرات التدفق الرقمي</p>
+                        <p class="slide-brief">مسار معالجة الطلبات الواردة حديثاً عبر المنصة الوطنية الموحدة ومؤشرات
+                            التدفق الرقمي</p>
                     </div>
                     <div class="chart-selection-badge">
                         <i class="fa-solid fa-diagram-project"></i> Workflow Pipeline & Request Stream
@@ -443,7 +763,8 @@
                     <!-- Left: Pipeline Steps -->
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-network-wired"></i> مسار الطلبات بالمنظومة الجديدة (4 طلبات مسجلة)</h3>
+                            <h3><i class="fa-solid fa-network-wired"></i> مسار الطلبات بالمنظومة الجديدة (4 طلبات مسجلة)
+                            </h3>
                             <span class="badge badge-cyan">دورة المعاملة الرقمية</span>
                         </div>
 
@@ -459,7 +780,9 @@
 
                             <div class="pipeline-branch">
                                 <div class="pipeline-step">
-                                    <div class="step-badge"><i class="fa-solid fa-ban"></i></div>
+                                    <div class="step-badge"
+                                        style="background: var(--rose-bg); color: var(--rose-coral);"><i
+                                            class="fa-solid fa-ban"></i></div>
                                     <div class="step-info">
                                         <span class="step-name">مخالفة تمت إزالتها فوراً</span>
                                         <span class="step-val">1 حالة (25%)</span>
@@ -467,7 +790,9 @@
                                 </div>
 
                                 <div class="pipeline-step">
-                                    <div class="step-badge"><i class="fa-solid fa-file-contract"></i></div>
+                                    <div class="step-badge"
+                                        style="background: var(--emerald-bg); color: var(--emerald-green);"><i
+                                            class="fa-solid fa-file-contract"></i></div>
                                     <div class="step-info">
                                         <span class="step-name">مسار التقنين والتعاقد</span>
                                         <span class="step-val">3 حالات (75%)</span>
@@ -479,7 +804,8 @@
                         <div class="insight-box" style="margin-top: 14px;">
                             <div class="insight-icon"><i class="fa-solid fa-microchip"></i></div>
                             <div class="insight-text">
-                                <strong>تكامل المنظومة:</strong> تضمن المنصة 168 لسنة 2025 الربط المباشر بين الرفع المساحي الرقمي والموافقات السيادية لضمان حوكمة منظومة التقنين وسرعة البت.
+                                <strong>تكامل المنظومة:</strong> تضمن المنصة 168 لسنة 2025 الربط المباشر بين الرفع
+                                المساحي الرقمي والموافقات السيادية لضمان حوكمة منظومة التقنين وسرعة البت.
                             </div>
                         </div>
                     </div>
@@ -498,17 +824,19 @@
             </div>
         </section>
 
-        <!-- ================= SLIDE 7: Military Survey & Platform 168 Approvals ================= -->
-        <section class="slide" id="slide-6">
+        <!-- ================= SLIDE 9: Military Survey & Smart Asset Card ================= -->
+        <section class="slide" id="slide-8">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-shield-halved"></i> الموافقات السيادية ومميزات المنظومة المستحدثة</span>
-                        <h2>موقف الموافقات مع المساحة العسكرية ومقارنة المنظومة 168/2025</h2>
-                        <p class="slide-brief">متابعة تفصيلية لحالات التعاقد الـ 3 بالمنصة الجديدة والمزايا التقنية والإجرائية المكتسبة</p>
+                        <span class="slide-subtitle"><i class="fa-solid fa-shield-halved"></i> الموافقات السيادية والأمن
+                            المكاني</span>
+                        <h2>موقف هيئة المساحة العسكرية وكارت الوصف الذكي المميكن</h2>
+                        <p class="slide-brief">متابعة الحالات الـ 3 بالمنصة الجديدة والتحول نحو إصدار كارت وصف رقمي مشفر
+                            لكل قطعة أرض</p>
                     </div>
                     <div class="chart-selection-badge">
-                        <i class="fa-solid fa-code-compare"></i> Strategic Comparison & Military Survey Tracker
+                        <i class="fa-solid fa-id-card-clip"></i> Smart Asset Card & GIS Verification
                     </div>
                 </div>
 
@@ -516,28 +844,36 @@
                     <!-- Left: Military Survey Status -->
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-building-shield"></i> موقف موافقات هيئة المساحة العسكرية (3 حالات)</h3>
+                            <h3><i class="fa-solid fa-building-shield"></i> موقف موافقات هيئة المساحة العسكرية (3 حالات)
+                            </h3>
                             <span class="badge badge-teal">تتبع الموافقات</span>
                         </div>
 
-                        <div class="sub-pipeline">
-                            <div class="sub-item" style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">
-                                <i class="fa-solid fa-circle-check text-success" style="font-size: 1.6rem; margin-top: 4px;"></i>
+                        <div class="sub-pipeline" style="display: flex; flex-direction: column; gap: 12px;">
+                            <div class="sub-item"
+                                style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px; display: flex; gap: 12px;">
+                                <i class="fa-solid fa-circle-check text-success"
+                                    style="font-size: 1.5rem; margin-top: 4px; color: var(--emerald-green);"></i>
                                 <div>
-                                    <strong style="font-size: 1.15rem; color: var(--emerald-green);">1 حالة معتمدة رسمياً (33.3%):</strong>
-                                    <p style="margin-top: 4px;">تم ورود موافقة هيئة المساحة العسكرية بشأنها بنجاح، وجارٍ استكمال إجراءات توقيع العقد وسداد الرسوم المقررة.</p>
+                                    <strong style="font-size: 1.05rem; color: var(--emerald-green);">1 حالة معتمدة
+                                        رسمياً (33.3%):</strong>
+                                    <p style="margin-top: 2px; font-size: 0.9rem;">تم ورود موافقة هيئة المساحة العسكرية
+                                        بشأنها بنجاح، وجارٍ استكمال إجراءات توقيع العقد النهائي.</p>
                                 </div>
                             </div>
-                            <div class="sub-item" style="padding-top: 6px;">
-                                <i class="fa-solid fa-clock-rotate-left text-amber" style="font-size: 1.6rem; margin-top: 4px;"></i>
+                            <div class="sub-item" style="display: flex; gap: 12px;">
+                                <i class="fa-solid fa-clock-rotate-left text-amber"
+                                    style="font-size: 1.5rem; margin-top: 4px; color: var(--gold-amber);"></i>
                                 <div>
-                                    <strong style="font-size: 1.15rem; color: var(--gold-amber);">2 حالة قيد المتابعة والانتظار (66.7%):</strong>
-                                    <p style="margin-top: 4px;">تم إرسال الإحداثيات والرفع المساحي للهيئة، وبانتظار ورود إفادة المساحة العسكرية لاستكمال المسار التعاقدي.</p>
+                                    <strong style="font-size: 1.05rem; color: var(--gold-amber);">2 حالة قيد المتابعة
+                                        والانتظار (66.7%):</strong>
+                                    <p style="margin-top: 2px; font-size: 0.9rem;">تم إرسال الإحداثيات والرفع المساحي
+                                        للهيئة، وبانتظار ورود إفادة المساحة العسكرية لاستكمال المسار.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="exec-table-wrapper" style="margin-top: 14px;">
+                        <div class="exec-table-wrapper" style="margin-top: 12px;">
                             <table class="exec-table">
                                 <thead>
                                     <tr>
@@ -567,46 +903,155 @@
                         </div>
                     </div>
 
-                    <!-- Right: Comparison block -->
+                    <!-- Right: Smart Asset Card Image & Features -->
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-award"></i> القيمة المضافة للمنظومة الجديدة (168 لسنة 2025)</h3>
-                            <span class="badge badge-cyan">مزايا التحول الرقمي</span>
+                            <h3><i class="fa-solid fa-id-card"></i> كارت الوصف المميكن والمشفر لأملاك الدولة</h3>
+                            <span class="badge badge-cyan">الهوية الرقمية للأصل</span>
                         </div>
 
-                        <div class="comparison-box" style="grid-template-columns: 1fr; gap: 16px;">
-                            <div class="comp-col">
-                                <h5><i class="fa-solid fa-star text-amber"></i> ركائز المنظومة الجديدة (168/2025)</h5>
-                                <ul>
-                                    <li><i class="fa-solid fa-check text-success"></i> <strong>الرفع الإحداثي الدقيق:</strong> استخدام خرائط GIS الموحدة لمنع التداخل والازدواجية.</li>
-                                    <li><i class="fa-solid fa-check text-success"></i> <strong>الربط السيادي الإلكتروني:</strong> تسريع موافقات المساحة العسكرية عبر منصة وطنية واحدة.</li>
-                                    <li><i class="fa-solid fa-check text-success"></i> <strong>الحوكمة ومنع التلاعب:</strong> إصدار باركود وكارت وصف رقمي مشفر لكل قطعة أرض.</li>
-                                </ul>
-                            </div>
-                            <div class="comp-col">
-                                <h5><i class="fa-solid fa-bullseye text-cyan"></i> الهدف الاستراتيجي للمرحلة القادمة</h5>
-                                <ul>
-                                    <li><i class="fa-solid fa-angle-left"></i> تحويل كافة ملفات التقنين القديمة تدريجياً إلى المنصة الرقمية الموحدة.</li>
-                                    <li><i class="fa-solid fa-angle-left"></i> تقليص زمن دورة المعاينة والبت من شهور إلى أيام معدودة.</li>
-                                </ul>
-                            </div>
+                        <div
+                            style="border-radius: 14px; overflow: hidden; border: 1px solid var(--border-card); margin-bottom: 12px;">
+                            <img src="smart_card.jpg" alt="كارت الوصف المميكن"
+                                style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                        </div>
+
+                        <div class="comparison-box">
+                            <ul
+                                style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; color: var(--text-secondary);">
+                                <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                    <strong>تضمين QR Code مشفر:</strong> يتيح لفرق التفتيش التحقق الفوري من سريان العقد
+                                    والترخيص.</li>
+                                <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                    <strong>الإحداثيات الجغرافية الدقيقة (GIS):</strong> تثبيت حدود منافع الصرف ومنع أي
+                                    تعديل مستقبلي.</li>
+                                <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                    <strong>الربط السيادي:</strong> تسجيل الرقم القومي والصفة القانونية للشاغل ومنع
+                                    تداول الأراضي بالمخالفة.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SLIDE 8: Guidance Sector Regional Overview ================= -->
-        <section class="slide" id="slide-7">
+        <!-- ================= SLIDE 10: Systems Philosophy Interactive Animation ================= -->
+        <section class="slide" id="slide-9">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-users-viewfinder"></i> المحور الخامس: جهود الإرشاد الميداني الكلية</span>
-                        <h2>متابعة قسم الإرشاد لتحويل الممتنعين (922 حالة) بالأقاليم الستة</h2>
-                        <p class="slide-brief">المؤشرات الإجمالية للاجتماعات الإرشادية والتفاعل الميداني للمواطنين الممتنعين عبر قطاعات الجمهورية</p>
+                        <span class="slide-subtitle"><i class="fa-solid fa-microchip"></i> المحور الثامن: الفلسفة
+                            المعمارية الرقمية</span>
+                        <h2>فلسفة عمل المنظومات والأنظمة: دورة الحوكمة المغلقة لأملاك الدولة</h2>
+                        <p class="slide-brief">رسم تفاعلي يجسد كيف تحول المنظومة التعديات والعشوائية إلى أصول موثقة
+                            وموارد ذاتية مؤمنة للدولة</p>
                     </div>
                     <div class="chart-selection-badge">
-                        <i class="fa-solid fa-chart-column"></i> Clustered Column Chart (تحليل الاستجابة الإقليمية)
+                        <i class="fa-solid fa-diagram-project"></i> Interactive System Engine Animation
+                    </div>
+                </div>
+
+                <div class="system-anim-container">
+                    <div class="anim-toolbar">
+                        <div class="anim-modes">
+                            <span style="font-weight: 800; margin-left: 8px; color: var(--text-secondary);">مسار
+                                التدفق:</span>
+                            <button class="anim-mode-btn active" id="modeContract"
+                                onclick="switchAnimMode('contract')"><i class="fa-solid fa-file-contract"></i> مسار
+                                التعاقد والتقنين</button>
+                            <button class="anim-mode-btn" id="modeLicense" onclick="switchAnimMode('license')"><i
+                                    class="fa-solid fa-certificate"></i> مسار ترخيص الانتفاع</button>
+                            <button class="anim-mode-btn" id="modeRemoval" onclick="switchAnimMode('removal')"><i
+                                    class="fa-solid fa-gavel"></i> مسار الردع والإزالة الفورية</button>
+                        </div>
+                        <div class="anim-speed-controls">
+                            <button class="nav-btn" id="btnAnimToggle" onclick="toggleSystemAnimation()"
+                                style="padding: 6px 14px; font-size: 0.88rem;"><i class="fa-solid fa-pause"></i> إيقاف
+                                مؤقت</button>
+                        </div>
+                    </div>
+
+                    <!-- 5 Animated Nodes Layout -->
+                    <div class="anim-canvas-area" id="animCanvasArea">
+                        <!-- Node 1 -->
+                        <div class="anim-node node-1 active-node" id="node1" onclick="selectAnimNode(1)">
+                            <div class="anim-node-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                            <h4>1. الرصد والاستشعار الميداني</h4>
+                            <p>حصر التعديات وطلبات التراخيص يومياً (المستهدف 150/يوم)</p>
+                        </div>
+
+                        <!-- Connector 1 -->
+                        <div style="color: var(--teal-primary); font-size: 1.5rem;"><i
+                                class="fa-solid fa-angles-left"></i></div>
+
+                        <!-- Node 2 -->
+                        <div class="anim-node node-2" id="node2" onclick="selectAnimNode(2)">
+                            <div class="anim-node-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h4>2. التدقيق والفرز الفني</h4>
+                            <p>تحديد الصلاحية (صالحة 56.4% / غير صالحة 43.6%)</p>
+                        </div>
+
+                        <!-- Connector 2 -->
+                        <div style="color: var(--cyan-accent); font-size: 1.5rem;"><i
+                                class="fa-solid fa-angles-left"></i></div>
+
+                        <!-- Node 3 -->
+                        <div class="anim-node node-3" id="node3" onclick="selectAnimNode(3)">
+                            <div class="anim-node-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h4>3. الربط السيادي والمكاني</h4>
+                            <p>المطابقة مع المساحة العسكرية وخرائط GIS الوطنية</p>
+                        </div>
+
+                        <!-- Connector 3 -->
+                        <div style="color: var(--gold-amber); font-size: 1.5rem;"><i
+                                class="fa-solid fa-angles-left"></i></div>
+
+                        <!-- Node 4 -->
+                        <div class="anim-node node-4" id="node4" onclick="selectAnimNode(4)">
+                            <div class="anim-node-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <h4>4. كارت الوصف المميكن</h4>
+                            <p>توليد باركود و QR مشفر ومطابقة الإحداثيات الحية</p>
+                        </div>
+
+                        <!-- Connector 4 -->
+                        <div style="color: var(--emerald-green); font-size: 1.5rem;"><i
+                                class="fa-solid fa-angles-left"></i></div>
+
+                        <!-- Node 5 -->
+                        <div class="anim-node node-5" id="node5" onclick="selectAnimNode(5)">
+                            <div class="anim-node-icon" id="node5Icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                            <h4 id="node5Title">5. الحسم والأثر المالي</h4>
+                            <p id="node5Desc">إبرام العقد وسداد الرسوم أو تنفيذ قرار الإزالة الفوري</p>
+                        </div>
+                    </div>
+
+                    <!-- Selected Node Explanation -->
+                    <div class="anim-details-card" id="animDetailsCard">
+                        <div class="anim-details-text">
+                            <h4 id="animCardTitle"><i class="fa-solid fa-circle-check"></i> المرحلة المحددة: الرصد
+                                والاستشعار الميداني</h4>
+                            <p id="animCardDesc">تقوم لجان المرور الميدانية والإدارات بحصر التعديات وتدفق التراخيص
+                                وإدخالها فورياً على المنظومة الموازية لحفظ حقوق الدولة ومنع ترسيخ أي أمر واقع.</p>
+                        </div>
+                        <span class="badge badge-teal" id="animStatusBadge">نظام نشط ومستمر</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 11: Guidance Sector Regional Overview ================= -->
+        <section class="slide" id="slide-10">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <div class="slide-title-group">
+                        <span class="slide-subtitle"><i class="fa-solid fa-users-viewfinder"></i> المحور التاسع: جهود
+                            الإرشاد الميداني الكلية</span>
+                        <h2>متابعة قسم الإرشاد لتحويل الممتنعين (922 حالة) بالأقاليم الستة</h2>
+                        <p class="slide-brief">المؤشرات الإجمالية للاجتماعات الإرشادية والتفاعل الميداني للمواطنين
+                            الممتنعين عبر قطاعات الجمهورية</p>
+                    </div>
+                    <div class="chart-selection-badge">
+                        <i class="fa-solid fa-chart-column"></i> Clustered Column Chart
                     </div>
                 </div>
 
@@ -623,7 +1068,8 @@
 
                     <div class="glass-card">
                         <div class="card-header">
-                            <h3><i class="fa-solid fa-map-location-dot"></i> التوزيع الكلي لجهود الإرشاد بالأقاليم الستة</h3>
+                            <h3><i class="fa-solid fa-map-location-dot"></i> التوزيع الكلي لجهود الإرشاد بالأقاليم الستة
+                            </h3>
                             <span class="badge badge-amber">6 أقاليم جغرافية</span>
                         </div>
 
@@ -633,24 +1079,27 @@
                                     <tr>
                                         <th>الإقليم الجغرافي</th>
                                         <th>الإدارة التابعة</th>
-                                        <th>الموقف ومستوى التفاعل</th>
+                                        <th>الموقف ومستوى التفاعل الميداني</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><strong>1. القناة وسيناء</strong></td>
                                         <td>صرف الإسماعيلية</td>
-                                        <td><span class="badge badge-emerald">استجابة وتوقيع (1 تم + 1 قريباً)</span></td>
+                                        <td><span class="badge badge-emerald">استجابة وتوقيع (1 تم + 1 قريباً)</span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><strong>2. مصر الوسطى</strong></td>
                                         <td>جنوب وشمال الجيزة</td>
-                                        <td><span class="badge badge-teal">توقيع 5 بجنوب الجيزة / امتناع بشمال الجيزة</span></td>
+                                        <td><span class="badge badge-teal">توقيع 5 بجنوب الجيزة / امتناع بشمال
+                                                الجيزة</span></td>
                                     </tr>
                                     <tr>
                                         <td><strong>3. شرق الدلتا</strong></td>
                                         <td>شمال الدقهلية والشرقية</td>
-                                        <td><span class="badge badge-cyan">موافقة 19 بالدقهلية بعد فصل الحد + 1 توقيع</span></td>
+                                        <td><span class="badge badge-cyan">موافقة 19 بالدقهلية بعد فصل الحد + 1
+                                                توقيع</span></td>
                                     </tr>
                                     <tr>
                                         <td><strong>4. مصر العليا</strong></td>
@@ -665,7 +1114,8 @@
                                     <tr>
                                         <td><strong>6. غرب الدلتا</strong></td>
                                         <td>صرف شمال البحيرة</td>
-                                        <td><span class="badge badge-teal">تفاوض على مدة 5 سنوات وحسم التسعير</span></td>
+                                        <td><span class="badge badge-teal">تفاوض على مدة 5 سنوات وحسم التسعير</span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -674,7 +1124,9 @@
                         <div class="insight-box">
                             <div class="insight-icon"><i class="fa-solid fa-lightbulb"></i></div>
                             <div class="insight-text">
-                                <strong>التحليل التنفيذي:</strong> يظهر التقرير تفاوتاً ملحوظاً في تفاعل المواطنين؛ حيث أثمر الإرشاد عن نتائج إيجابية في القناة وشرق الدلتا وجنوب الجيزة، بينما يتطلب الأمر حزماً قانونياً في قنا وشمال الجيزة، وحلولاً فنية للتسعير بالبحيرة.
+                                <strong>التحليل التنفيذي:</strong> يظهر التقرير تفاوتاً ملحوظاً في تفاعل المواطنين؛ حيث
+                                أثمر الإرشاد عن نتائج إيجابية في القناة وشرق الدلتا وجنوب الجيزة، بينما يتطلب الأمر
+                                حزماً قانونياً في قنا وشمال الجيزة، وحلولاً فنية للتسعير بالبحيرة.
                             </div>
                         </div>
                     </div>
@@ -682,14 +1134,16 @@
             </div>
         </section>
 
-        <!-- ================= SLIDE 9: Regional Deep-Dive Part 1 ================= -->
-        <section class="slide" id="slide-8">
+        <!-- ================= SLIDE 12: Regional Deep-Dive Part 1 ================= -->
+        <section class="slide" id="slide-11">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-map-location"></i> التفصيل الميداني للأقاليم (المجموعة الأولى)</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-map-location"></i> التفصيل الميداني للأقاليم
+                            (المجموعة الأولى)</span>
                         <h2>الموقف الميداني: القناة وسيناء، مصر الوسطى، وشرق الدلتا</h2>
-                        <p class="slide-brief">النتائج التفصيلية لاجتماعات الإرشاد وعدد الحالات المستهدفة والموقعة بتلك الأقاليم</p>
+                        <p class="slide-brief">النتائج التفصيلية لاجتماعات الإرشاد وعدد الحالات المستهدفة والموقعة بتلك
+                            الأقاليم</p>
                     </div>
                     <div class="chart-selection-badge">
                         <i class="fa-solid fa-building"></i> Regional Deep-Dive Group A
@@ -700,7 +1154,8 @@
                     <!-- Region 1: Canal & Sinai -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-ship text-teal"></i> إقليم القناة وسيناء</h3>
+                            <h3><i class="fa-solid fa-ship text-teal" style="color: var(--teal-primary);"></i> إقليم
+                                القناة وسيناء</h3>
                             <span class="badge badge-emerald">استجابة 100%</span>
                         </div>
                         <span class="reg-admin-unit">إدارة صرف الإسماعيلية</span>
@@ -709,15 +1164,18 @@
                             <span class="highlight-num">2 مواطنين</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-check text-success"></i> <strong>1 حالة:</strong> تم توقيع العقد الفعلي وسداد الرسوم.</li>
-                            <li><i class="fa-solid fa-clock text-amber"></i> <strong>1 حالة:</strong> تم الاتفاق وجارٍ التوقيع في القريب العاجل.</li>
+                            <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                <strong>1 حالة:</strong> تم توقيع العقد الفعلي وسداد الرسوم.</li>
+                            <li><i class="fa-solid fa-clock text-amber" style="color: var(--gold-amber);"></i> <strong>1
+                                    حالة:</strong> تم الاتفاق وجارٍ التوقيع في القريب العاجل.</li>
                         </ul>
                     </div>
 
                     <!-- Region 2: Middle Egypt -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-pyramid text-cyan"></i> إقليم مصر الوسطى</h3>
+                            <h3><i class="fa-solid fa-pyramid text-cyan" style="color: var(--cyan-accent);"></i> إقليم
+                                مصر الوسطى</h3>
                             <span class="badge badge-teal">تفاعل متباين</span>
                         </div>
                         <span class="reg-admin-unit">إدارتا جنوب وشمال الجيزة</span>
@@ -726,15 +1184,18 @@
                             <span class="highlight-num">30 مواطناً</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-check text-success"></i> <strong>جنوب الجيزة (10):</strong> تم توقيع 5 عقود + 5 قيد التفاوض.</li>
-                            <li><i class="fa-solid fa-xmark text-danger"></i> <strong>شمال الجيزة (20):</strong> لا توجد موافقة تامة ومماطلة في التوقيع.</li>
+                            <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                <strong>جنوب الجيزة (10):</strong> تم توقيع 5 عقود + 5 قيد التفاوض.</li>
+                            <li><i class="fa-solid fa-xmark text-danger" style="color: var(--rose-coral);"></i>
+                                <strong>شمال الجيزة (20):</strong> لا توجد موافقة تامة ومماطلة في التوقيع.</li>
                         </ul>
                     </div>
 
                     <!-- Region 3: East Delta -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-water text-emerald"></i> إقليم شرق الدلتا</h3>
+                            <h3><i class="fa-solid fa-water text-emerald" style="color: var(--emerald-green);"></i>
+                                إقليم شرق الدلتا</h3>
                             <span class="badge badge-cyan">موافقة مشروطة</span>
                         </div>
                         <span class="reg-admin-unit">إدارتا شمال الدقهلية والشرقية</span>
@@ -743,27 +1204,32 @@
                             <span class="highlight-num">20 مواطناً</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-check text-success"></i> <strong>صرف الشرقية:</strong> تم توقيع عقد لحالة واحدة مستهدفة.</li>
-                            <li><i class="fa-solid fa-compass-drafting text-teal"></i> <strong>شمال الدقهلية (19):</strong> موافقة تامة بعد إجراء فصل الحد.</li>
+                            <li><i class="fa-solid fa-check text-success" style="color: var(--emerald-green);"></i>
+                                <strong>صرف الشرقية:</strong> تم توقيع عقد لحالة واحدة مستهدفة.</li>
+                            <li><i class="fa-solid fa-compass-drafting text-teal"
+                                    style="color: var(--teal-primary);"></i> <strong>شمال الدقهلية (19):</strong> موافقة
+                                تامة بعد إجراء فصل الحد.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="insight-box" style="margin-top: 20px;">
+                <div class="insight-box" style="margin-top: 14px;">
                     <div class="insight-icon"><i class="fa-solid fa-compass-drafting"></i></div>
                     <div class="insight-text">
-                        <strong>الإجراء العاجل لشرق الدلتا:</strong> إرسال طاقم مساحي لأراضي شمال الدقهلية لإجراء "فصل الحد" وتثبيت العلامات يضمن التوقيع الفوري على 19 عقداً دفعة واحدة.
+                        <strong>الإجراء العاجل لشرق الدلتا:</strong> إرسال طاقم مساحي لأراضي شمال الدقهلية لإجراء "فصل
+                        الحد" وتثبيت العلامات يضمن التوقيع الفوري على 19 عقداً دفعة واحدة.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SLIDE 10: Regional Deep-Dive Part 2 ================= -->
-        <section class="slide" id="slide-9">
+        <!-- ================= SLIDE 13: Regional Deep-Dive Part 2 ================= -->
+        <section class="slide" id="slide-12">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-map-marked"></i> التفصيل الميداني للأقاليم (المجموعة الثانية)</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-map-marked"></i> التفصيل الميداني للأقاليم
+                            (المجموعة الثانية)</span>
                         <h2>الموقف الميداني: مصر العليا، وسط الدلتا، وغرب الدلتا</h2>
                         <p class="slide-brief">النتائج التفصيلية للمفاوضات وحالات الرفض ومهل التفكير بتلك الأقاليم</p>
                     </div>
@@ -776,7 +1242,8 @@
                     <!-- Region 4: Upper Egypt -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-mountain-sun text-rose"></i> إقليم مصر العليا</h3>
+                            <h3><i class="fa-solid fa-mountain-sun text-rose" style="color: var(--rose-coral);"></i>
+                                إقليم مصر العليا</h3>
                             <span class="badge badge-rose">رفض تام</span>
                         </div>
                         <span class="reg-admin-unit">إدارة صرف جنوب قنا</span>
@@ -785,15 +1252,18 @@
                             <span class="highlight-num">17 مواطناً</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-ban text-danger"></i> <strong>17 حالة:</strong> رفض تام وامتناع قاطع عن التوقيع على العقود.</li>
-                            <li><i class="fa-solid fa-gavel text-danger"></i> <strong>الإجراء:</strong> توجيه إنذارات بالسحب والإزالة الفورية والحجز الإداري.</li>
+                            <li><i class="fa-solid fa-ban text-danger" style="color: var(--rose-coral);"></i> <strong>17
+                                    حالة:</strong> رفض تام وامتناع قاطع عن التوقيع على العقود.</li>
+                            <li><i class="fa-solid fa-gavel text-danger" style="color: var(--rose-coral);"></i>
+                                <strong>الإجراء:</strong> توجيه إنذارات بالسحب والإزالة الفورية والحجز الإداري.</li>
                         </ul>
                     </div>
 
                     <!-- Region 5: Middle Delta -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-seedling text-purple"></i> إقليم وسط الدلتا</h3>
+                            <h3><i class="fa-solid fa-seedling text-purple" style="color: var(--purple-accent);"></i>
+                                إقليم وسط الدلتا</h3>
                             <span class="badge badge-amber">مهلة تفكير</span>
                         </div>
                         <span class="reg-admin-unit">صرف غرب المنوفية وشرق كفر الشيخ</span>
@@ -802,15 +1272,18 @@
                             <span class="highlight-num">3 اجتماعات</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-hourglass-half text-amber"></i> <strong>الموقف العام:</strong> جميع الحالات طلبت مهلة زمنية للتفكير.</li>
-                            <li><i class="fa-solid fa-comments text-teal"></i> <strong>الإجراء:</strong> عقد جلسات متابعة مكثفة قبل انتهاء المهل الرسمية.</li>
+                            <li><i class="fa-solid fa-hourglass-half text-amber" style="color: var(--gold-amber);"></i>
+                                <strong>الموقف العام:</strong> جميع الحالات طلبت مهلة زمنية للتفكير.</li>
+                            <li><i class="fa-solid fa-comments text-teal" style="color: var(--teal-primary);"></i>
+                                <strong>الإجراء:</strong> عقد جلسات متابعة مكثفة قبل انتهاء المهل الرسمية.</li>
                         </ul>
                     </div>
 
                     <!-- Region 6: West Delta -->
                     <div class="regional-deep-card">
                         <div class="reg-card-header">
-                            <h3><i class="fa-solid fa-wheat-awn text-amber"></i> إقليم غرب الدلتا</h3>
+                            <h3><i class="fa-solid fa-wheat-awn text-amber" style="color: var(--gold-amber);"></i> إقليم
+                                غرب الدلتا</h3>
                             <span class="badge badge-teal">تفاوض نشط</span>
                         </div>
                         <span class="reg-admin-unit">إدارة صرف شمال البحيرة</span>
@@ -819,29 +1292,34 @@
                             <span class="highlight-num">اجتماعان تفاوضيان</span>
                         </div>
                         <ul class="reg-details-list">
-                            <li><i class="fa-solid fa-handshake text-teal"></i> <strong>طلب المنتفعين:</strong> زيادة مدة التعاقد لتكون 5 سنوات فأكثر.</li>
-                            <li><i class="fa-solid fa-tags text-amber"></i> <strong>التسعير:</strong> سرعة حسم واعتماد أسعار التقدير للمتر المربع.</li>
+                            <li><i class="fa-solid fa-handshake text-teal" style="color: var(--teal-primary);"></i>
+                                <strong>طلب المنتفعين:</strong> زيادة مدة التعاقد لتكون 5 سنوات فأكثر.</li>
+                            <li><i class="fa-solid fa-tags text-amber" style="color: var(--gold-amber);"></i>
+                                <strong>التسعير:</strong> سرعة حسم واعتماد أسعار التقدير للمتر المربع.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="insight-box" style="margin-top: 20px;">
+                <div class="insight-box" style="margin-top: 14px;">
                     <div class="insight-icon"><i class="fa-solid fa-scale-unbalanced"></i></div>
                     <div class="insight-text">
-                        <strong>التوصية الإدارية:</strong> تطبيق مبدأ "التفاوض المرن المشروط" مع غرب ووسط الدلتا عبر إقرار مدد تعاقدية محفزة، بالتوازي مع "الحزم القانوني الصارم" مع حالات الرفض التام بقنا.
+                        <strong>التوصية الإدارية:</strong> تطبيق مبدأ "التفاوض المرن المشروط" مع غرب ووسط الدلتا عبر
+                        إقرار مدد تعاقدية محفزة، بالتوازي مع "الحزم القانوني الصارم" مع حالات الرفض التام بقنا.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SLIDE 11: Bottlenecks & Operational Solutions ================= -->
-        <section class="slide" id="slide-10">
+        <!-- ================= SLIDE 14: Bottlenecks & Operational Solutions ================= -->
+        <section class="slide" id="slide-13">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-handshake-simple"></i> المحور السادس: المعوقات الميدانية وخطة المعالجة</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-handshake-simple"></i> المحور العاشر:
+                            المعوقات الميدانية وخطة المعالجة</span>
                         <h2>مصفوفة المعوقات الميدانية ومطالب المواطنين والحلول التنفيذية</h2>
-                        <p class="slide-brief">تحليل التحديات الميدانية الأربعة وحلول الحسم الإداري والفني المعتمدة لرفع معدلات التعاقد</p>
+                        <p class="slide-brief">تحليل التحديات الميدانية الأربعة وحلول الحسم الإداري والفني المعتمدة لرفع
+                            معدلات التعاقد</p>
                     </div>
                     <div class="chart-selection-badge">
                         <i class="fa-solid fa-screwdriver-wrench"></i> Operational Negotiation Matrix
@@ -854,11 +1332,15 @@
                         <div>
                             <div class="matrix-icon teal"><i class="fa-solid fa-vector-square"></i></div>
                             <h3>1. مسألة فصل الحد المساحي والتدقيق</h3>
-                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم شرق الدلتا • إدارة صرف شمال الدقهلية (19 مواطناً)</div>
-                            <p class="problem-text"><strong>المعوق الميداني:</strong> تعليق توقيع 19 مواطناً لحين حسم الحدود الفاصلة بدقة بين أراضي الملكية الخاصة ومنافع وأملاك المصارف العامة.</p>
+                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم شرق الدلتا • إدارة
+                                صرف شمال الدقهلية (19 مواطناً)</div>
+                            <p class="problem-text"><strong>المعوق الميداني:</strong> تعليق توقيع 19 مواطناً لحين حسم
+                                الحدود الفاصلة بدقة بين أراضي الملكية الخاصة ومنافع وأملاك المصارف العامة.</p>
                         </div>
                         <div class="solution-box">
-                            <i class="fa-solid fa-check-circle"></i> <strong>الإجراء التنفيذي المعتمد:</strong> إيفاد طاقم مساحي عاجل مزود بأجهزة GPS لتثبيت العلامات وفصل الحد، يليه التوقيع الفوري على العقود.
+                            <i class="fa-solid fa-check-circle" style="color: var(--emerald-green);"></i>
+                            <strong>الإجراء التنفيذي المعتمد:</strong> إيفاد طاقم مساحي عاجل مزود بأجهزة GPS لتثبيت
+                            العلامات وفصل الحد، يليه التوقيع الفوري على العقود.
                         </div>
                     </div>
 
@@ -867,11 +1349,16 @@
                         <div>
                             <div class="matrix-icon amber"><i class="fa-solid fa-tags"></i></div>
                             <h3>2. اعتماد التسعير وزيادة مدة التعاقد</h3>
-                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم غرب الدلتا • إدارة صرف شمال البحيرة (اجتماعان تفاوضيان)</div>
-                            <p class="problem-text"><strong>المعوق الميداني:</strong> تأخر حسم أسعار تقدير المتر المربع ومطالبة المنتفعين بمد مدة العقد إلى 5 سنوات فأكثر لضمان الاستقرار الاستثماري والزراعي.</p>
+                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم غرب الدلتا • إدارة
+                                صرف شمال البحيرة (اجتماعان تفاوضيان)</div>
+                            <p class="problem-text"><strong>المعوق الميداني:</strong> تأخر حسم أسعار تقدير المتر المربع
+                                ومطالبة المنتفعين بمد مدة العقد إلى 5 سنوات فأكثر لضمان الاستقرار الاستثماري والزراعي.
+                            </p>
                         </div>
                         <div class="solution-box">
-                            <i class="fa-solid fa-check-circle"></i> <strong>الإجراء التنفيذي المعتمد:</strong> التنسيق العاجل مع اللجان العليا للتثمين لاعتماد قوائم الأسعار ودراسة إقرار صيغ تعاقدية لمدد أطول وفق الضوابط.
+                            <i class="fa-solid fa-check-circle" style="color: var(--emerald-green);"></i>
+                            <strong>الإجراء التنفيذي المعتمد:</strong> التنسيق العاجل مع اللجان العليا للتثمين لاعتماد
+                            قوائم الأسعار ودراسة إقرار صيغ تعاقدية لمدد أطول وفق الضوابط.
                         </div>
                     </div>
 
@@ -880,11 +1367,15 @@
                         <div>
                             <div class="matrix-icon rose"><i class="fa-solid fa-hand-holding-hand"></i></div>
                             <h3>3. حالات الرفض التام والمماطلة</h3>
-                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> صرف جنوب قنا (17 مواطناً) + صرف شمال الجيزة (20 مواطناً)</div>
-                            <p class="problem-text"><strong>المعوق الميداني:</strong> الامتناع القاطع عن التوقيع رغبة في استمرار وضع اليد دون أداء مستحقات الدولة ومقابل الانتفاع القانوني.</p>
+                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> صرف جنوب قنا (17
+                                مواطناً) + صرف شمال الجيزة (20 مواطناً)</div>
+                            <p class="problem-text"><strong>المعوق الميداني:</strong> الامتناع القاطع عن التوقيع رغبة في
+                                استمرار وضع اليد دون أداء مستحقات الدولة ومقابل الانتفاع القانوني.</p>
                         </div>
                         <div class="solution-box alert-sol">
-                            <i class="fa-solid fa-triangle-exclamation"></i> <strong>الإجراء الرادع المعتمد:</strong> توجيه إنذارات رسمية بمهلة 15 يوماً فقط، يعقبها مباشرة إدراج الحالات في قرارات الإزالة وتطبيق الحجز الإداري.
+                            <i class="fa-solid fa-triangle-exclamation" style="color: var(--rose-coral);"></i>
+                            <strong>الإجراء الرادع المعتمد:</strong> توجيه إنذارات رسمية بمهلة 15 يوماً فقط، يعقبها
+                            مباشرة إدراج الحالات في قرارات الإزالة وتطبيق الحجز الإداري.
                         </div>
                     </div>
 
@@ -893,25 +1384,31 @@
                         <div>
                             <div class="matrix-icon purple"><i class="fa-solid fa-hourglass-start"></i></div>
                             <h3>4. طلب مهل تفكير وتردد في التعاقد</h3>
-                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم وسط الدلتا • صرف غرب المنوفية وشرق كفر الشيخ (3 اجتماعات)</div>
-                            <p class="problem-text"><strong>المعوق الميداني:</strong> تردد المواطنين وطلب وقت إضافي قبل الالتزام بسداد مقدمات التعاقد والأقساط المقررة قانوناً.</p>
+                            <div class="matrix-region"><i class="fa-solid fa-location-dot"></i> إقليم وسط الدلتا • صرف
+                                غرب المنوفية وشرق كفر الشيخ (3 اجتماعات)</div>
+                            <p class="problem-text"><strong>المعوق الميداني:</strong> تردد المواطنين وطلب وقت إضافي قبل
+                                الالتزام بسداد مقدمات التعاقد والأقساط المقررة قانوناً.</p>
                         </div>
                         <div class="solution-box">
-                            <i class="fa-solid fa-check-circle"></i> <strong>الإجراء التنفيذي المعتمد:</strong> عقد جلسات استكمال موجهة وتوضيح سقوط حق التقنين وسحب الأرض في حال فوات المواعيد الرسمية المحددة.
+                            <i class="fa-solid fa-check-circle" style="color: var(--emerald-green);"></i>
+                            <strong>الإجراء التنفيذي المعتمد:</strong> عقد جلسات استكمال موجهة وتوضيح سقوط حق التقنين
+                            وسحب الأرض في حال فوات المواعيد الرسمية المحددة.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SLIDE 12: Urgent Executive Mandates ================= -->
-        <section class="slide" id="slide-11">
+        <!-- ================= SLIDE 15: Urgent Executive Mandates ================= -->
+        <section class="slide" id="slide-14">
             <div class="slide-content">
                 <div class="slide-header">
                     <div class="slide-title-group">
-                        <span class="slide-subtitle"><i class="fa-solid fa-list-check"></i> المحور السابع: التكليفات وخطة العمل التنفيذية</span>
+                        <span class="slide-subtitle"><i class="fa-solid fa-list-check"></i> المحور الحادي عشر: التكليفات
+                            وخطة العمل التنفيذية</span>
                         <h2>التكليفات العاجلة وخطة العمل الإلزامية لمديري عموم الأقاليم</h2>
-                        <p class="slide-brief">حزمة توجيهات حاسمة ومحددة الأهداف والمسؤوليات لتحقيق المستهدفات وحماية الأصول وتعظيم الموارد</p>
+                        <p class="slide-brief">حزمة توجيهات حاسمة ومحددة الأهداف والمسؤوليات لتحقيق المستهدفات وحماية
+                            الأصول وتعظيم الموارد</p>
                     </div>
                     <div class="chart-selection-badge">
                         <i class="fa-solid fa-award"></i> Action Plan & Executive Mandates
@@ -926,7 +1423,9 @@
                             <div class="mandate-icon"><i class="fa-solid fa-id-card"></i></div>
                         </div>
                         <h3>لجان المرور وكارت الوصف الشامل</h3>
-                        <p>تشكيل لجان مرور ميدانية فورية ومستمرة على جميع حالات التعدي، مع إلزام كل إدارة بإصدار <strong>"كارت وصف كامل وشامل ومميكن"</strong> لكل قطعة من أملاك الصرف يتضمن (المساحة الدقيقة، الإحداثيات، طبيعة الاستغلال، والشاغل الفعلي).</p>
+                        <p>تشكيل لجان مرور ميدانية فورية ومستمرة على جميع حالات التعدي، مع إلزام كل إدارة بإصدار
+                            <strong>"كارت وصف كامل وشامل ومميكن"</strong> لكل قطعة من أملاك الصرف يتضمن (المساحة
+                            الدقيقة، الإحداثيات، طبيعة الاستغلال، والشاغل الفعلي).</p>
                         <div class="mandate-footer">
                             <span><i class="fa-solid fa-clock"></i> الأجل: تنفيذ فوري ومستمر</span>
                             <span class="badge badge-teal">حصر دقيق 100%</span>
@@ -940,7 +1439,9 @@
                             <div class="mandate-icon"><i class="fa-solid fa-bullseye"></i></div>
                         </div>
                         <h3>تحقيق مستهدفات التراخيص والإزالة</h3>
-                        <p>إلزام مديري عموم الأقاليم بتحقيق <strong>المستهدف الرقمي المطلوب للتراخيص</strong> وتحصيل رسوم مقابل الانتفاع، مع رفع معدلات تنفيذ <strong>قرارات إزالة المخالفات</strong> غير القابلة للتقنين بالتنسيق مع الجهات المعنية وفق جدول زمني حاسم.</p>
+                        <p>إلزام مديري عموم الأقاليم بتحقيق <strong>المستهدف الرقمي المطلوب للتراخيص والإرسال اليومي
+                                (150/يوم)</strong>، مع رفع معدلات تنفيذ <strong>قرارات إزالة المخالفات</strong> غير
+                            القابلة للتقنين بالتنسيق مع الجهات المعنية وفق جدول حاسم.</p>
                         <div class="mandate-footer">
                             <span><i class="fa-solid fa-chart-line"></i> قياس أداء شهري</span>
                             <span class="badge badge-emerald">مستهدف إلزامي</span>
@@ -954,7 +1455,9 @@
                             <div class="mandate-icon"><i class="fa-solid fa-gavel"></i></div>
                         </div>
                         <h3>حصر وطرح الأراضي المميزة في مزايدات</h3>
-                        <p>إعداد بيان شامل وتفصيلي بقطع الأراضي المميزة الفضاء أو القابلة للاستثمار التي تقع بولاية الهيئة، وتجهيز كراسات الشروط لطرحها في <strong>مزايدات عامة علنية للجمهور وأصحاب المصلحة</strong> لتعظيم الإيرادات الذاتية للدولة.</p>
+                        <p>إعداد بيان شامل وتفصيلي بقطع الأراضي المميزة الفضاء أو القابلة للاستثمار التي تقع بولاية
+                            الهيئة، وتجهيز كراسات الشروط لطرحها في <strong>مزايدات عامة علنية للجمهور وأصحاب
+                                المصلحة</strong> لتعظيم الإيرادات الذاتية للدولة.</p>
                         <div class="mandate-footer">
                             <span><i class="fa-solid fa-sack-dollar"></i> تعظيم الموارد</span>
                             <span class="badge badge-amber">طرح استثماري</span>
@@ -966,11 +1469,94 @@
                 <div class="summary-action-banner">
                     <div class="banner-text">
                         <h4><i class="fa-solid fa-flag-checkered"></i> خلاصة التوصيات الإدارية الحاكمة:</h4>
-                        <p>اعتماد التنسيق التام بين لجان الإرشاد وفرق الرفع المساحي بالدقهلية، وسرعة حسم التسعير بالبحيرة، وتوجيه الإنذارات الرادعة للممتنعين بقنا وشمال الجيزة مع الربط المباشر بكروت الوصف الرقمية مع المنصة الوطنية 168 لسنة 2025.</p>
+                        <p>اعتماد التنسيق التام بين لجان الإرشاد وفرق الرفع المساحي بالدقهلية، وسرعة حسم التسعير
+                            بالبحيرة، وتوجيه الإنذارات الرادعة للممتنعين بقنا وشمال الجيزة مع تدقيق الـ 649 ترخيصاً
+                            المتبقية والالتزام بمستهدف الـ 150 تعدياً يومياً.</p>
                     </div>
                     <button class="btn btn-emerald" onclick="triggerMilestoneCelebration()">
                         <i class="fa-solid fa-check-double"></i> اعتماد التكليفات والبدء الفوري
                     </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SLIDE 16: Executive Operations Room ================= -->
+        <section class="slide" id="slide-15">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <div class="slide-title-group">
+                        <span class="slide-subtitle"><i class="fa-solid fa-award"></i> المحور الختامي: منظومة القيادة
+                            والمتابعة اللحظية</span>
+                        <h2>غرفة العمليات المركزية لمتابعة أملاك ومصارف الصرف بالجمهورية</h2>
+                        <p class="slide-brief">الربط اللحظي والرقمنة الشاملة لضمان حماية أصول الدولة وتعظيم العوائد
+                            الاستثمارية المستدامة</p>
+                    </div>
+                    <div class="chart-selection-badge">
+                        <i class="fa-solid fa-tower-observation"></i> Command & Control Dashboard
+                    </div>
+                </div>
+
+                <div class="grid-2-col">
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-display"></i> مركز القيادة والتحكم الرقمي للأملاك</h3>
+                            <span class="badge badge-teal">GIS Operations Center</span>
+                        </div>
+                        <div
+                            style="border-radius: 14px; overflow: hidden; border: 1px solid var(--border-card); margin-bottom: 12px;">
+                            <img src="gis_center.jpg" alt="مركز القيادة والتحكم"
+                                style="width: 100%; height: 210px; object-fit: cover; display: block;">
+                        </div>
+                        <div class="insight-box">
+                            <div class="insight-icon"><i class="fa-solid fa-satellite"></i></div>
+                            <div class="insight-text">
+                                <strong>الرؤية المستقبلية:</strong> ربط جميع الأقاليم الستة بشبكة رقمية موحدة تتيح
+                                المتابعة اللحظية للتعديات، وسرعة رصد المتغيرات المكانية بالأقمار الصناعية.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-clipboard-check"></i> القرارات التنفيذية المعتمدة فوراً</h3>
+                            <span class="badge badge-emerald">جاهز للتنفيذ</span>
+                        </div>
+
+                        <div class="pipeline-container">
+                            <div class="pipeline-step">
+                                <div class="step-badge" style="background: var(--teal-bg); color: var(--teal-primary);">
+                                    <i class="fa-solid fa-1"></i></div>
+                                <div class="step-info">
+                                    <span class="step-name">إلزام الأقاليم بمستهدف الـ 150 تعدياً يومياً</span>
+                                    <span class="step-val">معالجة فورية لفجوة تدني الإرسال وتكثيف لجان المرور</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-step">
+                                <div class="step-badge" style="background: var(--cyan-bg); color: var(--cyan-accent);">
+                                    <i class="fa-solid fa-2"></i></div>
+                                <div class="step-info">
+                                    <span class="step-name">إنهاء مراجعة الـ 649 ترخيصاً المتبقية</span>
+                                    <span class="step-val">إدخال الصالح منها بالمنظومة لرفع نسبة الحوكمة لـ 100%</span>
+                                </div>
+                            </div>
+                            <div class="pipeline-step">
+                                <div class="step-badge"
+                                    style="background: var(--purple-bg); color: var(--purple-accent);"><i
+                                        class="fa-solid fa-3"></i></div>
+                                <div class="step-info">
+                                    <span class="step-name">إيفاد طواقم فصل الحد بالدقهلية وتثمين البحيرة</span>
+                                    <span class="step-val">تحويل ما يزيد عن 30 حالة ممتنعة لعقود رسمية فوراً</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 14px; text-align: center;">
+                            <button class="btn btn-emerald" style="width: 100%; justify-content: center;"
+                                onclick="triggerMilestoneCelebration()">
+                                <i class="fa-solid fa-file-signature"></i> اعتماد ونشر تقرير الأداء رسمياً
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -981,14 +1567,16 @@
     <footer class="bottom-bar">
         <div class="status-indicator">
             <span class="status-dot online"></span>
-            <span>البيانات معتمدة ومطابقة لنتائج محاضر لجان المعاينة والإرشاد الميداني الرسمية</span>
+            <span>البيانات معتمدة ومطابقة لنتائج محاضر لجان المعاينة والإرشاد الميداني والمنظومة الموازية الرسمية</span>
         </div>
         <div class="keyboard-hints">
-            <span>التنقل: <strong>←</strong> / <strong>→</strong> أو <strong>المسافة</strong> | التبديل: <strong>زر الوضع النهاري/الليلي</strong> بالأعلى</span>
+            <span>التنقل: <strong>←</strong> / <strong>→</strong> أو <strong>المسافة</strong> | التبديل: <strong>زر
+                    الوضع النهاري/الليلي</strong> بالأعلى</span>
         </div>
     </footer>
 
     <!-- Presentation Script -->
     <script src="app.js"></script>
 </body>
+
 </html>
