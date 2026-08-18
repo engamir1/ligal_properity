@@ -1,6 +1,6 @@
 /**
  * Egyptian State Land Regularization Executive Dashboard Script
- * 15-Slide Modular Architecture + Dual-Theme Synchronization
+ * 16-Slide Modular Architecture + Dual-Theme Synchronization
  */
 
 // Slide State Management
@@ -194,6 +194,85 @@ function triggerMilestoneCelebration() {
     }
     alert('✅ تم اعتماد حزمة التكليفات العاجلة رسمياً وتعميمها على الإدارات المركزية والأقاليم الستة لبدء التنفيذ الفوري.');
 }
+
+// ----------------------------------------------------
+// Executive PDF Print Management
+// ----------------------------------------------------
+function prepareAllChartsForPrint() {
+    // 1. Temporarily switch to light theme for clean, ink-friendly high-contrast print
+    document.documentElement.setAttribute('data-theme', 'light');
+    updateChartsTheme('light');
+
+    // 2. Make all slides visible in print layout
+    slides.forEach(slide => {
+        slide.style.display = 'block';
+    });
+
+    // 3. Immediately fill all counter targets
+    document.querySelectorAll('.counter').forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        if (target) counter.innerText = target.toLocaleString('en-US');
+    });
+
+    // 4. Force Chart.js instances to resize and paint
+    Object.values(chartInstances).forEach(chart => {
+        if (chart) {
+            chart.resize();
+            chart.update('none');
+        }
+    });
+
+    // 5. Generate high-resolution static PNG for each chart
+    Object.values(chartInstances).forEach(chart => {
+        if (chart && chart.canvas) {
+            try {
+                const canvas = chart.canvas;
+                const parent = canvas.parentElement;
+                if (parent) {
+                    let printImg = parent.querySelector('.print-chart-img');
+                    if (!printImg) {
+                        printImg = document.createElement('img');
+                        printImg.className = 'print-chart-img';
+                        printImg.alt = 'مخطط بياني إحصائي';
+                        parent.insertBefore(printImg, canvas);
+                    }
+                    const dataUrl = chart.toBase64Image('image/png', 1);
+                    if (dataUrl && dataUrl.length > 50) {
+                        printImg.src = dataUrl;
+                        canvas.style.display = 'none';
+                    }
+                }
+            } catch (err) {
+                console.warn('Could not generate chart image for print:', err);
+            }
+        }
+    });
+}
+
+function prepareForPrinting() {
+    prepareAllChartsForPrint();
+    setTimeout(() => {
+        window.print();
+    }, 450);
+}
+
+window.addEventListener('beforeprint', () => {
+    prepareAllChartsForPrint();
+});
+
+window.addEventListener('afterprint', () => {
+    const savedTheme = localStorage.getItem('land_reg_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateChartsTheme(savedTheme);
+
+    slides.forEach(slide => {
+        slide.style.display = '';
+    });
+    document.querySelectorAll('.chart-container canvas').forEach(c => {
+        c.style.display = '';
+    });
+    updateSlideView(currentSlide);
+});
 
 function initCounters() {
     const counters = document.querySelectorAll('.counter');
