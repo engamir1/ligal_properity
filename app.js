@@ -581,10 +581,10 @@ function initAllCharts() {
         chartInstances.platform = new Chart(ctxPlatform, {
             type: 'pie',
             data: {
-                labels: ['موافقة مساحة عسكرية (1)', 'في انتظار الموافقة (2)', 'تمت الإزالة فوراً (1)'],
+                labels: ['في انتظار موافقة المساحة العسكرية (3)', 'تمت الإزالة فوراً (1)'],
                 datasets: [{
-                    data: [1, 2, 1],
-                    backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
+                    data: [3, 1],
+                    backgroundColor: ['#f59e0b', '#f43f5e'],
                     borderColor: 'transparent',
                     borderWidth: 2
                 }]
@@ -596,6 +596,15 @@ function initAllCharts() {
                     legend: {
                         position: 'bottom',
                         labels: { boxWidth: 14, padding: 14, font: { size: 12, weight: 'bold' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const total = 4;
+                                const pct = Math.round((context.raw / total) * 100);
+                                return ` ${context.label}: ${context.raw} حالة (${pct}%)`;
+                            }
+                        }
                     }
                 }
             }
