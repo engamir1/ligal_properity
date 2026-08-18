@@ -1279,6 +1279,108 @@ body {
     color: var(--teal-primary);
 }
 
+/* ================= Regional Methodology Bottom Panel ================= */
+.methodology-bottom-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 12px 18px;
+    margin-top: 10px;
+}
+.methodology-bottom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.methodology-bottom-header h3 {
+    font-size: 1.02rem;
+    font-weight: 900;
+    color: var(--teal-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+.methodology-region-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+.m-chip {
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-card);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.m-chip:hover, .m-chip.active {
+    background: var(--teal-primary);
+    color: #ffffff;
+    border-color: var(--teal-primary);
+    box-shadow: 0 2px 8px var(--teal-glow);
+}
+.methodology-bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr;
+    gap: 12px;
+    align-items: stretch;
+}
+.m-formula-card {
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-accent);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+.m-formula-title {
+    font-size: 0.86rem;
+    font-weight: 900;
+    color: var(--cyan-accent);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.m-formula-math {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px dashed var(--border-accent);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.84rem;
+    color: var(--text-primary);
+    direction: ltr;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+.m-formula-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.exec-table tbody tr.clickable-row {
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.exec-table tbody tr.clickable-row:hover, .exec-table tbody tr.clickable-row.selected-row {
+    background: var(--table-row-hover);
+    outline: 1px solid var(--teal-primary);
+}
+
 /* ================= Responsive Layout Adjustments ================= */
 @media (max-width: 1200px) {
     .cover-slide { grid-template-columns: 1fr; }
@@ -1287,4 +1389,5 @@ body {
     .mandates-grid { grid-template-columns: 1fr; }
     .regional-deep-grid { grid-template-columns: 1fr; }
     .matrix-grid { grid-template-columns: 1fr; }
+    .matrix-grid-wrapper { grid-template-columns: 1fr; }
 }

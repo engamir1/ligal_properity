@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     setupEventListeners();
     startSystemAnimation();
+    initRegionalMethodology();
 });
 
 // ----------------------------------------------------
@@ -379,7 +380,7 @@ function initAllCharts() {
                     },
                     {
                         label: 'ممتنعون مستهدفون بالإرشاد (922)',
-                        data: [213, 471, 114, 4, 52, 67],
+                        data: [213, 471, 114, 5, 52, 67],
                         backgroundColor: '#f59e0b',
                         borderRadius: 6
                     }
@@ -654,4 +655,152 @@ function initAllCharts() {
 
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     updateChartsTheme(currentTheme);
+}
+
+// ----------------------------------------------------
+// Regional Master Scorecard Methodology Side Panel Logic
+// ----------------------------------------------------
+const regionalMethodologyData = {
+    middle_egypt: {
+        name: "إقليم مصر الوسطى",
+        badge: "أعلى إبرام عقود وإزالات",
+        badgeClass: "badge-teal",
+        totalMath: "200 + 213 + 75 + 200 + 9 = 697 حالة",
+        totalDesc: "عقود مبرمة (200) + ممتنعون (213) + إزالة فضاء (75) + قرارات ومحاضر (200) + تحويل لصالح (9).",
+        validityMath: "[(200 عقود + 213 ممتنعون) ÷ 697 إجمالي] × 100 = 59.3%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 200 + الممتنعين 213 = 413 حالة) من إجمالي حالات الإقليم (697).",
+        kpiBadge: "أعلى إبرام عقود وإزالات",
+        kpiBadgeClass: "badge-teal",
+        kpiReason: "تصدر المركز الأول على مستوى الجمهورية في إبرام العقود (200 عقد = 58.5% من الهيئة) والإزالات الفعلية واسترداد الأراضي فضاء (75 حالة = 40.5% من الهيئة)."
+    },
+    east_delta: {
+        name: "إقليم شرق الدلتا",
+        badge: "أعلى كتلة ممتنعين مستهدفة",
+        badgeClass: "badge-cyan",
+        totalMath: "108 + 471 + 58 + 160 + 19 = 816 حالة",
+        totalDesc: "عقود مبرمة (108) + ممتنعون (471) + إزالة فضاء (58) + قرارات ومحاضر (160) + تحويل لصالح (19).",
+        validityMath: "[(108 عقود + 471 ممتنعون) ÷ 816 إجمالي] × 100 = 71.0%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 108 + الممتنعين 471 = 579 حالة) من إجمالي حالات الإقليم (816).",
+        kpiBadge: "أعلى كتلة ممتنعين مستهدفة",
+        kpiBadgeClass: "badge-cyan",
+        kpiReason: "يضم أكبر حجم عمل بالهيئة (816 حالة) وأكثر من نصف ممتنعي الجمهورية (471 ممتنعاً = 51.1%)، وهو الأولوية القصوى للإرشاد القانوني وتحصيل مقابل الانتفاع."
+    },
+    west_delta: {
+        name: "إقليم غرب الدلتا",
+        badge: "يتطلب حسم التسعير والمدد",
+        badgeClass: "badge-amber",
+        totalMath: "2 + 67 + 25 + 170 + 0 = 264 حالة",
+        totalDesc: "عقود مبرمة (2) + ممتنعون (67) + إزالة فضاء (25) + قرارات ومحاضر (170) + تحويل لصالح (0).",
+        validityMath: "[(2 عقود + 67 ممتنعون) ÷ 264 إجمالي] × 100 = 26.1%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 2 + الممتنعين 67 = 69 حالة) من إجمالي حالات الإقليم (264).",
+        kpiBadge: "يتطلب حسم التسعير والمدد",
+        kpiBadgeClass: "badge-amber",
+        kpiReason: "تدني نسبة إبرام العقود (عقدان فقط = 2.9% من الصالح)، وطلب 67 ممتنعاً زيادة المدد لـ 5 سنوات وتخفيض الأسعار، مع اتخاذ 170 قرار ومحضر إزالة."
+    },
+    canal_sinai: {
+        name: "إقليم القناة وسيناء",
+        badge: "أعلى نسبة استجابة تعاقدية",
+        badgeClass: "badge-emerald",
+        totalMath: "7 + 5 + 1 + 0 + 0 = 13 حالة",
+        totalDesc: "عقود مبرمة (7) + ممتنعون (5) + إزالة فضاء (1) + قرارات ومحاضر (0) + تحويل لصالح (0).",
+        validityMath: "[(7 عقود + 5 ممتنعون) ÷ 13 إجمالي] × 100 = 92.3%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 7 + الممتنعين 5 = 12 حالة) من إجمالي حالات الإقليم (13).",
+        kpiBadge: "أعلى نسبة استجابة تعاقدية",
+        kpiBadgeClass: "badge-emerald",
+        kpiReason: "سجل أعلى معدل استجابة تعاقدية بين الصالح (7 عقود من 12 حالة = 58.3%)، مع تحقيق أعلى نسبة صلاحية 92.3%، وصفر قرارات إزالة ومحاضر."
+    },
+    middle_delta: {
+        name: "إقليم وسط الدلتا",
+        badge: "فرصة تحصيل واعدة (مهل)",
+        badgeClass: "badge-purple",
+        totalMath: "22 + 114 + 24 + 230 + 0 = 390 حالة",
+        totalDesc: "عقود مبرمة (22) + ممتنعون (114) + إزالة فضاء (24) + قرارات ومحاضر (230) + تحويل لصالح (0).",
+        validityMath: "[(22 عقود + 114 ممتنعون) ÷ 390 إجمالي] × 100 = 34.9%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 22 + الممتنعين 114 = 136 حالة) من إجمالي حالات الإقليم (390).",
+        kpiBadge: "فرصة تحصيل واعدة (مهل)",
+        kpiBadgeClass: "badge-purple",
+        kpiReason: "وجود 114 حالة امتناع طلبت مهلاً زمنية للتفكير والتسوية (فرصة تحصيل سريعة مع المتابعة) بجانب حسم 230 حالة بإجراءات وقرارات إزالة."
+    },
+    upper_egypt: {
+        name: "إقليم مصر العليا",
+        badge: "رفض مرتفع يتطلب حسم رادع",
+        badgeClass: "badge-rose",
+        totalMath: "3 + 52 + 2 + 4 + 0 = 61 حالة",
+        totalDesc: "عقود مبرمة (3) + ممتنعون (52) + إزالة فضاء (2) + قرارات ومحاضر (4) + تحويل لصالح (0).",
+        validityMath: "[(3 عقود + 52 ممتنعون) ÷ 61 إجمالي] × 100 = 90.2%",
+        validityDesc: "نسبة الحالات الصالحة (المبرمة 3 + الممتنعين 52 = 55 حالة) من إجمالي حالات الإقليم (61).",
+        kpiBadge: "رفض مرتفع يتطلب حسم رادع",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "رغم أن نسبة الصلاحية الفنية 90.2%، إلا أن 52 حالة ترفض التوقيع ولم يُبرم سوى 3 عقود (5.5%)، مما يتطلب تفعيل الإنذارات والحجز الإداري."
+    },
+    all: {
+        name: "الإجمالي العام للهيئة",
+        badge: "حوكمة شاملة 100%",
+        badgeClass: "badge-teal",
+        totalMath: "342 + 922 + 185 + 764 + 28 = 2,241 حالة",
+        totalDesc: "عقود مبرمة (342) + ممتنعون (922) + إزالة فضاء (185) + قرارات ومحاضر (764) + تحويل لصالح (28).",
+        validityMath: "[(342 عقود + 922 ممتنعون) ÷ 2,241 إجمالي] × 100 = 56.4%",
+        validityDesc: "نسبة مجموع الحالات الصالحة على مستوى الهيئة (1,264 حالة) من إجمالي المعاينات الكلية (2,241 حالة).",
+        kpiBadge: "حوكمة شاملة 100%",
+        kpiBadgeClass: "badge-teal",
+        kpiReason: "حصر وتدقيق وتسكين كافة الـ 2,241 حالة بنسبة مطابقة 100% دون أي فواقد إحصائية وتوزيعها على مسارات العمل التنفيذية."
+    }
+};
+
+function selectMethodologyRegion(regionKey) {
+    const data = regionalMethodologyData[regionKey];
+    if (!data) return;
+
+    // Update Chips
+    document.querySelectorAll('.methodology-region-chips .m-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-target') === regionKey);
+    });
+
+    // Update Table Row selection
+    document.querySelectorAll('#matrixScorecardTable tbody tr.clickable-row').forEach(row => {
+        row.classList.toggle('selected-row', row.getAttribute('data-region') === regionKey);
+    });
+
+    // Update Badge
+    const badgeEl = document.getElementById('methodologyRegionBadge');
+    if (badgeEl) {
+        badgeEl.textContent = data.name;
+        badgeEl.className = `badge ${data.badgeClass}`;
+    }
+
+    // Update Math Cards
+    const totalMath = document.getElementById('mTotalMath');
+    const totalDesc = document.getElementById('mTotalDesc');
+    const validityMath = document.getElementById('mValidityMath');
+    const validityDesc = document.getElementById('mValidityDesc');
+    const kpiBadge = document.getElementById('mKpiBadge');
+    const kpiDesc = document.getElementById('mKpiDesc');
+
+    if (totalMath) totalMath.textContent = data.totalMath;
+    if (totalDesc) totalDesc.textContent = data.totalDesc;
+    if (validityMath) validityMath.textContent = data.validityMath;
+    if (validityDesc) validityDesc.textContent = data.validityDesc;
+    if (kpiBadge) {
+        kpiBadge.textContent = data.kpiBadge;
+        kpiBadge.className = `badge ${data.kpiBadgeClass}`;
+    }
+    if (kpiDesc) kpiDesc.textContent = data.kpiReason;
+}
+
+function initRegionalMethodology() {
+    // Listeners for Chips
+    document.querySelectorAll('.methodology-region-chips .m-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            selectMethodologyRegion(target);
+        });
+    });
+
+    // Listeners for Table Rows
+    document.querySelectorAll('#matrixScorecardTable tbody tr.clickable-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const target = row.getAttribute('data-region');
+            selectMethodologyRegion(target);
+        });
+    });
 }
