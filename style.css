@@ -626,10 +626,11 @@ body {
     background: var(--bg-surface);
     border: 1px solid var(--border-card);
     border-radius: 18px;
-    padding: 20px 22px;
+    padding: 18px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
     transition: var(--transition-smooth);
 }
 .glass-card:hover {
@@ -640,17 +641,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
     border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 .card-header h3 {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     font-weight: 900;
     color: var(--text-primary);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 /* Badges & Chips */
@@ -675,9 +676,11 @@ body {
     position: relative;
     width: 100%;
     min-height: 280px;
+    flex: 1;
 }
 .chart-container.tall {
     min-height: 320px;
+    flex: 1;
 }
 
 .print-chart-img {
