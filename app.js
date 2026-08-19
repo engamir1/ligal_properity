@@ -511,6 +511,13 @@ function initAllCharts() {
                         data: [7, 1, 0, 0, 5, 0, 0, 5],
                         backgroundColor: '#06b6d4',
                         borderRadius: 6
+                    },
+                    {
+                        type: 'bar',
+                        label: 'مصر العليا (عقد واحد)',
+                        data: [0, 1, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 6
                     }
                 ]
             },
