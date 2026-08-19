@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     setupEventListeners();
     initRegionalMethodology();
+    initDailyMethodology();
+    initLicensesMethodology();
+    initContractsMethodology();
 });
 
 // ----------------------------------------------------
@@ -473,17 +476,99 @@ function initAllCharts() {
         });
     }
 
+    // 4a. Line & Bar Chart - Daily Contracts Inflow (108 Contracts across 8 days)
+    const ctxContractsFlow = document.getElementById('chartDailyContractsFlow')?.getContext('2d');
+    if (ctxContractsFlow) {
+        chartInstances.contractsFlow = new Chart(ctxContractsFlow, {
+            type: 'bar',
+            data: {
+                labels: ['8-8 (السبت)', '9-8 (الأحد)', '10-8 (الإثنين)', '11-8 (الثلاثاء)', '12-8 (الأربعاء)', '13-8 (الخميس)', '15-8 (السبت)', '16-8 (الأحد)'],
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'إجمالي العقود اليومية (الهيئة)',
+                        data: [35, 10, 5, 24, 24, 0, 0, 10],
+                        borderColor: '#14b8a6',
+                        backgroundColor: 'rgba(20, 184, 166, 0.15)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#14b8a6',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        type: 'bar',
+                        label: 'مصر الوسطى (المتصدر 84)',
+                        data: [28, 8, 5, 24, 19, 0, 0, 5],
+                        backgroundColor: '#10b981',
+                        borderRadius: 6
+                    },
+                    {
+                        type: 'bar',
+                        label: 'شرق الدلتا (18 عقداً)',
+                        data: [7, 1, 0, 0, 5, 0, 0, 5],
+                        backgroundColor: '#06b6d4',
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, padding: 10, font: { size: 11, weight: 'bold' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return ` ${context.dataset.label}: ${context.raw} عقد`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 11, weight: 'bold' } } },
+                    y: { beginAtZero: true, ticks: { font: { size: 11 } } }
+                }
+            }
+        });
+    }
+
+    // 4b. Line & Area Chart - Daily Licenses Inflow
+    const ctxLicensesFlow = document.getElementById('chartDailyLicensesFlow')?.getContext('2d');
+    if (ctxLicensesFlow) {
+        chartInstances.licensesFlow = new Chart(ctxLicensesFlow, {
+            type: 'line',
+            data: {
+                labels: ['8-8', '9-8', '10-8', '11-8', '12-8', '13-8', '15-8', '16-8', '17-8'],
+                datasets: [{
+                    label: 'إجمالي التراخيص اليومية',
+                    data: [7, 69, 208, 336, 518, 401, 164, 100, 174],
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+
     // 5. Line & Area Chart - Daily Encroachments vs Target (150/Day)
     const ctxDaily = document.getElementById('chartDailyEncroachmentsTarget')?.getContext('2d');
     if (ctxDaily) {
         chartInstances.daily = new Chart(ctxDaily, {
             type: 'line',
             data: {
-                labels: ['1-8', '2-8', '3-8', '4-8', '5-8', '6-8', '8-8', '9-8', '10-8', '11-8', '12-8', '13-8', '15-8', '16-8', '17-8', '18-8'],
+                labels: ['1-8', '2-8', '3-8', '4-8', '5-8', '6-8', '8-8', '9-8', '10-8', '11-8', '12-8', '13-8', '15-8', '16-8'],
                 datasets: [
                     {
                         label: 'المستهدف اليومي الإلزامي (150 حالة/يوم)',
-                        data: [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
+                        data: [150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150, 150],
                         borderColor: '#f43f5e',
                         borderWidth: 2,
                         borderDash: [6, 6],
@@ -492,7 +577,7 @@ function initAllCharts() {
                     },
                     {
                         label: 'المرسل الفعلي من الأقاليم (إجمالي الهيئة)',
-                        data: [33, 39, 90, 86, 83, 39, 27, 43, 48, 34, 54, 26, 28, 39, 18, 34],
+                        data: [33, 39, 90, 86, 83, 39, 27, 43, 48, 34, 54, 26, 28, 39],
                         borderColor: '#14b8a6',
                         backgroundColor: 'rgba(20, 184, 166, 0.15)',
                         borderWidth: 3,
@@ -527,16 +612,16 @@ function initAllCharts() {
         });
     }
 
-    // 6. Doughnut Chart - Regional Encroachments (5,062 Cases)
+    // 6. Doughnut Chart - Regional Daily Encroachments Distribution (669 Cases)
     const ctxEncroachments = document.getElementById('chartEncroachmentsRegional')?.getContext('2d');
     if (ctxEncroachments) {
         chartInstances.encroachments = new Chart(ctxEncroachments, {
             type: 'doughnut',
             data: {
-                labels: ['مصر الوسطى (1500)', 'شرق الدلتا (1211)', 'وسط الدلتا (1098)', 'غرب الدلتا (461)', 'القناة وسيناء (413)', 'مصر العليا (379)'],
+                labels: ['شرق الدلتا (167)', 'مصر الوسطى (161)', 'القناة وسيناء (101)', 'وسط الدلتا (98)', 'مصر العليا (98)', 'غرب الدلتا (44)'],
                 datasets: [{
-                    data: [1500, 1211, 1098, 461, 413, 379],
-                    backgroundColor: ['#a855f7', '#14b8a6', '#06b6d4', '#f59e0b', '#3b82f6', '#f43f5e'],
+                    data: [167, 161, 101, 98, 98, 44],
+                    backgroundColor: ['#14b8a6', '#a855f7', '#3b82f6', '#06b6d4', '#f43f5e', '#f59e0b'],
                     borderColor: 'transparent',
                     borderWidth: 2
                 }]
@@ -549,6 +634,15 @@ function initAllCharts() {
                     legend: {
                         position: 'right',
                         labels: { boxWidth: 12, padding: 10, font: { size: 11, weight: 'bold' } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const total = 669;
+                                const pct = ((context.raw / total) * 100).toFixed(1);
+                                return ` ${context.label}: ${context.raw} حالة (${pct}%)`;
+                            }
+                        }
                     }
                 }
             }
@@ -810,3 +904,448 @@ function initRegionalMethodology() {
         });
     });
 }
+
+// ----------------------------------------------------
+// Daily Encroachments Methodology & Calculations Engine
+// ----------------------------------------------------
+const dailyMethodologyData = {
+    east_delta: {
+        name: "إقليم شرق الدلتا",
+        badge: "المركز 1 (استمرارية نشطة)",
+        badgeClass: "badge-emerald",
+        totalMath: "14 + 19 + 17 + 14 + 34 + 9 + 4 + 12 + 10 + 11 + 9 + 6 + 0 + 8 = 167 حالة",
+        totalDesc: "مجموع التعديات المرسلة عبر 14 يوم عمل (1-8 إلى 16-8)، وسجل أعلى ذروة يوم 5-8 (34 حالة)، مع يوم توقف واحد فقط (15-8).",
+        rateMath: "المتوسط: 167 ÷ 14 = 11.9 حالة/يوم | المساهمة: (167 ÷ 669) × 100 = 25.0%",
+        rateDesc: "يمثل ربع إجمالي ما أرسلته الهيئة بالكامل (المركز الأول على مستوى الجمهورية) بمتوسط يومي منتظم قدره 11.9 حالة.",
+        kpiBadge: "المركز 1 (استمرارية نشطة)",
+        kpiBadgeClass: "badge-emerald",
+        kpiReason: "أعلى الأقاليم انتظاماً وتدفقاً بنسبة تشغيل 92.9% (13 يوماً نشطاً من أصل 14)، ويشكل القوة الدافعة الرئيسية لحجم الإرسال بالهيئة."
+    },
+    middle_egypt: {
+        name: "إقليم مصر الوسطى",
+        badge: "المركز 2 (تذبذب حاد - 5 أيام صفر)",
+        badgeClass: "badge-amber",
+        totalMath: "0 + 0 + 34 + 31 + 12 + 20 + 18 + 0 + 7 + 0 + 14 + 15 + 0 + 10 = 161 حالة",
+        totalDesc: "سجل قمم إرسال مرتفعة (34 و 31 حالة في 3 و 4 أغسطس)، مقابل 5 أيام انقطاع تام (صفر إرسال في 1، 2، 9، 11، 15 أغسطس).",
+        rateMath: "المتوسط: 161 ÷ 14 = 11.5 حالة/يوم | المساهمة: (161 ÷ 669) × 100 = 24.1%",
+        rateDesc: "المركز الثاني في حجم الإرسال بنسبة 24.1% بمتوسط 11.5 حالة/يوم، لكنه يعاني من تباين وتذبذب إحصائي حاد بين الأيام.",
+        kpiBadge: "المركز 2 (تذبذب حاد - 5 أيام صفر)",
+        kpiBadgeClass: "badge-amber",
+        kpiReason: "يمتلك طاقة إرسال عالية عند التشغيل بنظام الدفعات (Batching)، لكنه يحتاج لضبط آلية الإرسال اليومي الفوري لمنع تراكم الأيام الصفرية."
+    },
+    canal_sinai: {
+        name: "إقليم القناة وسيناء",
+        badge: "المركز 3 (استجابة منتظمة)",
+        badgeClass: "badge-teal",
+        totalMath: "0 + 3 + 8 + 15 + 10 + 5 + 0 + 7 + 4 + 7 + 23 + 5 + 14 + 0 = 101 حالة",
+        totalDesc: "إجمالي 101 حالة عبر 11 يوماً نشطاً، وسجل أعلى يوم إرسال في 12-8 بواقع 23 حالة، مقابل 3 أيام صفر فقط.",
+        rateMath: "المتوسط: 101 ÷ 14 = 7.2 حالة/يوم | المساهمة: (101 ÷ 669) × 100 = 15.1%",
+        rateDesc: "المركز الثالث على مستوى الهيئة بنسبة مساهمة 15.1% وبمعدل يومي متوازن قدره 7.2 حالة.",
+        kpiBadge: "المركز 3 (استجابة منتظمة)",
+        kpiBadgeClass: "badge-teal",
+        kpiReason: "أداء مستقر ومتوازن مع تصاعد ملحوظ في الأسبوع الثاني يعكس التنسيق الميداني الفعال بين إدارات الإسماعيلية وسيناء وبورسعيد."
+    },
+    middle_delta: {
+        name: "إقليم وسط الدلتا",
+        badge: "المركز 4 (توقف 4 أيام ثم عودة)",
+        badgeClass: "badge-purple",
+        totalMath: "4 + 10 + 22 + 5 + 14 + 0 + 5 + 11 + 13 + 0 + 0 + 0 + 0 + 14 = 98 حالة",
+        totalDesc: "إجمالي 98 حالة مع بداية قوية في الأسبوع الأول (ذروة 22 في 3-8)، تلاها انقطاع تام لـ 4 أيام متصلة (11-8 إلى 15-8) ثم استئناف في 16-8.",
+        rateMath: "المتوسط: 98 ÷ 14 = 7.0 حالة/يوم | المساهمة: (98 ÷ 669) × 100 = 14.6%",
+        rateDesc: "المركز الرابع مكرر بنسبة 14.6% من إجمالي الهيئة وبمتوسط يومي 7.0 حالات.",
+        kpiBadge: "المركز 4 (توقف 4 أيام ثم عودة)",
+        kpiBadgeClass: "badge-purple",
+        kpiReason: "وجود فجوة انقطاع مفاجئة في النصف الثاني من الشهر تستوجب التنسيق مع إدارات المنوفية والغربية وكفر الشيخ لضمان استمرارية الرصد."
+    },
+    upper_egypt: {
+        name: "إقليم مصر العليا",
+        badge: "المركز 4 مكرر (تحسن وتصاعد تدريجي)",
+        badgeClass: "badge-cyan",
+        totalMath: "0 + 0 + 2 + 15 + 7 + 5 + 0 + 11 + 13 + 16 + 8 + 0 + 14 + 7 = 98 حالة",
+        totalDesc: "إجمالي 98 حالة مع تصاعد تدريجي ملحوظ في النصف الثاني من الفترة (16 حالة في 11-8 و 14 حالة في 15-8)، مع 4 أيام صفر في البدايات.",
+        rateMath: "المتوسط: 98 ÷ 14 = 7.0 حالة/يوم | المساهمة: (98 ÷ 669) × 100 = 14.6%",
+        rateDesc: "المركز الرابع مكرر بمساهمة 14.6% ومتوسط يومي 7.0 حالات.",
+        kpiBadge: "المركز 4 مكرر (تحسن وتصاعد تدريجي)",
+        kpiBadgeClass: "badge-cyan",
+        kpiReason: "منحنى أداء متصاعد ومبشر يعكس زيادة نشاط لجان المعاينة وحصر التعديات وتكثيف المرور الميداني في قنا وأسوان وسوهاج."
+    },
+    west_delta: {
+        name: "إقليم غرب الدلتا",
+        badge: "المركز الأخير (توقف حرج 5 أيام)",
+        badgeClass: "badge-rose",
+        totalMath: "15 + 7 + 7 + 6 + 6 + 0 + 0 + 2 + 1 + 0 + 0 + 0 + 0 + 0 = 44 حالة",
+        totalDesc: "إجمالي 44 حالة فقط، منها 41 حالة أرسلت في أول 5 أيام، وتوقف تام وشلل كامل بعدها (5 أيام متتالية صفر من 11-8 إلى 16-8).",
+        rateMath: "المتوسط: 44 ÷ 14 = 3.1 حالة/يوم | المساهمة: (44 ÷ 669) × 100 = 6.6%",
+        rateDesc: "أدنى إقليم بالهيئة بمساهمة 6.6% فقط ومتوسط 3.1 حالة/يوم (أقل من نصف متوسط باقي الأقاليم).",
+        kpiBadge: "المركز الأخير (توقف حرج 5 أيام)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "يتطلب تشكيل لجنة دعم وتدخل ميداني عاجلة لمعالجة معوقات الرفع المساحي وحسم التسعير بالبحيرة لكسر حاجز الصفر المستمر."
+    },
+    all: {
+        name: "الإجمالي العام للهيئة",
+        badge: "فجوة عجز 68.1% (تستوجب كوتة ملزمة)",
+        badgeClass: "badge-rose",
+        totalMath: "167 (شرق) + 161 (وسطى) + 101 (قناة) + 98 (وسط) + 98 (عليا) + 44 (غرب) = 669 حالة",
+        totalDesc: "إجمالي ما تم إرساله فعلياً من الأقاليم الستة على مدار 14 يوم عمل من 1-8 إلى 16-8-2026.",
+        rateMath: "نسبة الإنجاز: (669 ÷ 2,100 مستهدف) × 100 = 31.9% | فجوة العجز: 2,100 - 669 = 1,431 حالة (68.1%)",
+        rateDesc: "تحقيق ثلث المستهدف الإلزامي فقط بمتوسط 47.8 حالة/يوم مقارنة بالمستهدف المحدد بـ 150 حالة/يوم.",
+        kpiBadge: "فجوة عجز 68.1% (تستوجب كوتة ملزمة)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "إلزام الأقاليم بكوتة يومية صارمة (شرق الدلتا 35، مصر الوسطى 35، وسط 25، غرب 25، قناة 15، عليا 15) مع تقرير نبض يومي الساعة 2:00 ظهراً."
+    }
+};
+
+function selectDailyMethodologyRegion(regionKey) {
+    const data = dailyMethodologyData[regionKey];
+    if (!data) return;
+
+    // Update Daily Chips
+    document.querySelectorAll('.daily-methodology-region-chips .m-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-target') === regionKey);
+    });
+
+    // Update Daily Table Rows
+    document.querySelectorAll('.daily-matrix-table tbody tr.clickable-daily-row').forEach(row => {
+        row.classList.toggle('selected-row', row.getAttribute('data-region') === regionKey);
+    });
+
+    // Update Daily Badge
+    const badgeEl = document.getElementById('dailyMethodologyRegionBadge');
+    if (badgeEl) {
+        badgeEl.textContent = data.name;
+        badgeEl.className = `badge ${data.badgeClass}`;
+    }
+
+    // Update Daily Math Cards
+    const totalMath = document.getElementById('dTotalMath');
+    const totalDesc = document.getElementById('dTotalDesc');
+    const rateMath = document.getElementById('dRateMath');
+    const rateDesc = document.getElementById('dRateDesc');
+    const kpiBadge = document.getElementById('dKpiBadge');
+    const kpiDesc = document.getElementById('dKpiDesc');
+
+    if (totalMath) totalMath.textContent = data.totalMath;
+    if (totalDesc) totalDesc.textContent = data.totalDesc;
+    if (rateMath) rateMath.textContent = data.rateMath;
+    if (rateDesc) rateDesc.textContent = data.rateDesc;
+    if (kpiBadge) {
+        kpiBadge.textContent = data.kpiBadge;
+        kpiBadge.className = `badge ${data.kpiBadgeClass}`;
+    }
+    if (kpiDesc) kpiDesc.textContent = data.kpiReason;
+}
+
+function initDailyMethodology() {
+    // Listeners for Daily Chips
+    document.querySelectorAll('.daily-methodology-region-chips .m-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            selectDailyMethodologyRegion(target);
+        });
+    });
+
+    // Listeners for Daily Table Rows
+    document.querySelectorAll('.daily-matrix-table tbody tr.clickable-daily-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const target = row.getAttribute('data-region');
+            selectDailyMethodologyRegion(target);
+        });
+    });
+}
+
+// ----------------------------------------------------
+// Daily Licenses Flow Methodology & Calculations Engine
+// ----------------------------------------------------
+const licensesMethodologyData = {
+    east_delta: {
+        name: "إقليم شرق الدلتا",
+        badge: "المركز 1 (أعلى مساهمة وتدفق مستمر)",
+        badgeClass: "badge-emerald",
+        totalMath: "5 + 6 + 117 + 125 + 163 + 163 + 81 + 79 + 134 = 873 ترخيصاً",
+        totalDesc: "مجموع التراخيص المرسلة من الإدارات عبر 9 أيام عمل (8-8 إلى 17-8-2026)، مع ذروة نشاط في 12 و 13 أغسطس (163 ترخيصاً)، واستمرارية 100% دون انقطاع.",
+        rateMath: "المتوسط: 873 ÷ 9 = 97.0 ترخيصاً/يوم | المساهمة: (873 ÷ 1,979) × 100 = 44.1%",
+        rateDesc: "يتصدر المركز الأول بالهيئة بنسبة 44.1% وبمعدل تدفق يومي قياسي 97 ترخيصاً/يوم، ويشكل مع وسط الدلتا 83.3% من تراخيص الهيئة.",
+        kpiBadge: "المركز 1 (أعلى مساهمة وتدفق مستمر)",
+        kpiBadgeClass: "badge-emerald",
+        kpiReason: "أداء استثنائي وتدفق وثائقي منضبط يعكس الجاهزية الكاملة لقواعد بيانات التراخيص بإدارات شرق الدلتا وسرعة إرسالها للربط بالمنظومة الرقمية."
+    },
+    middle_delta: {
+        name: "إقليم وسط الدلتا",
+        badge: "المركز 2 (أعلى ذروة يومية 319)",
+        badgeClass: "badge-cyan",
+        totalMath: "0 + 36 + 22 + 152 + 319 + 201 + 40 + 5 + 0 = 775 ترخيصاً",
+        totalDesc: "حقق أعلى ذروة تدفق يومي على الإطلاق بالهيئة (319 ترخيصاً يوم 12-8)، وإجمالي 775 ترخيصاً رغم البداية البطيئة وتوقف الإرسال في اليوم الأخير.",
+        rateMath: "المتوسط: 775 ÷ 9 = 86.1 ترخيصاً/يوم | المساهمة: (775 ÷ 1,979) × 100 = 39.2%",
+        rateDesc: "المركز الثاني على مستوى الجمهورية بنسبة مساهمة 39.2% وبمعدل يومي قوي 86.1 ترخيصاً/يوم.",
+        kpiBadge: "المركز 2 (أعلى ذروة يومية 319)",
+        kpiBadgeClass: "badge-cyan",
+        kpiReason: "قدرة استيعابية هائلة لإنهاء ملفات التراخيص بدفعات مركزة ضخمة، مع الحاجة لضمان استمرارية الإرسال اليومي المنتظم حتى انتهاء الحصر."
+    },
+    upper_egypt: {
+        name: "إقليم مصر العليا",
+        badge: "المركز 3 (تدفق متوسط متقطع)",
+        badgeClass: "badge-amber",
+        totalMath: "0 + 0 + 20 + 35 + 22 + 20 + 30 + 0 + 26 = 153 ترخيصاً",
+        totalDesc: "إجمالي 153 ترخيصاً موزعة على 6 أيام عمل نشطة بذروة 35 ترخيصاً في 11-8، مقابل 3 أيام صفرية (8 و 9 و 16 أغسطس).",
+        rateMath: "المتوسط: 153 ÷ 9 = 17.0 ترخيصاً/يوم | المساهمة: (153 ÷ 1,979) × 100 = 7.7%",
+        rateDesc: "المركز الثالث بنسبة 7.7% من إجمالي تراخيص الهيئة وبمعدل 17.0 ترخيصاً/يوم.",
+        kpiBadge: "المركز 3 (تدفق متوسط متقطع)",
+        kpiBadgeClass: "badge-amber",
+        kpiReason: "معدل تدفق مرضي مع ضرورة استكمال حصر باقي التراخيص الصادرة بالمحافظات الجنوبية وتفادي فترات التوقف."
+    },
+    middle_egypt: {
+        name: "إقليم مصر الوسطى",
+        badge: "المركز 4 (استجابة تدريجية منتظمة)",
+        badgeClass: "badge-purple",
+        totalMath: "0 + 6 + 33 + 24 + 14 + 10 + 0 + 8 + 8 = 105 تراخيص",
+        totalDesc: "إجمالي 105 تراخيص عبر 7 أيام نشطة وسجل أعلى إرسال في 10-8 بواقع 33 ترخيصاً، مع انقطاع في يومين (8 و 15 أغسطس).",
+        rateMath: "المتوسط: 105 ÷ 9 = 11.7 ترخيصاً/يوم | المساهمة: (105 ÷ 1,979) × 100 = 5.3%",
+        rateDesc: "المركز الرابع بنسبة 5.3% ومتوسط يومي 11.7 ترخيصاً.",
+        kpiBadge: "المركز 4 (استجابة تدريجية منتظمة)",
+        kpiBadgeClass: "badge-purple",
+        kpiReason: "إرسال يومي مستقر نسبياً مع الحاجة لرفع وتيرة الحصر بإدارات بني سويف والمنيا والفيوم."
+    },
+    west_delta: {
+        name: "إقليم غرب الدلتا",
+        badge: "المركز 5 (تراجع حاد وانقطاع 3 أيام)",
+        badgeClass: "badge-rose",
+        totalMath: "2 + 21 + 16 + 0 + 0 + 0 + 13 + 8 + 6 = 66 ترخيصاً",
+        totalDesc: "إجمالي 66 ترخيصاً فقط مع انقطاع تام لـ 3 أيام متتالية (11 و 12 و 13 أغسطس) ثم استئناف بطيء بمعدل محدود.",
+        rateMath: "المتوسط: 66 ÷ 9 = 7.3 ترخيصاً/يوم | المساهمة: (66 ÷ 1,979) × 100 = 3.3%",
+        rateDesc: "المركز الخامس بنسبة 3.3% ومتوسط يومي متدنٍ قدره 7.3 ترخيصاً/يوم.",
+        kpiBadge: "المركز 5 (تراجع حاد وانقطاع 3 أيام)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "مستوى إرسال ضعيف لا يتناسب مع حجم الرقعة المخدومة بغرب الدلتا والبحيرة، ويتطلب تدخلاً إدارياً لتسريع إرسال التراخيص السارية."
+    },
+    canal_sinai: {
+        name: "إقليم القناة وسيناء",
+        badge: "المركز الأخير (حصر محدود - 8 أيام صفر)",
+        badgeClass: "badge-rose",
+        totalMath: "0 + 0 + 0 + 0 + 0 + 7 + 0 + 0 + 0 = 7 تراخيص",
+        totalDesc: "إرسال 7 تراخيص فقط في يوم واحد (13-8) وصفر تام في باقي الأيام الـ 8 من فترة المتابعة.",
+        rateMath: "المتوسط: 7 ÷ 9 = 0.8 ترخيص/يوم | المساهمة: (7 ÷ 1,979) × 100 = 0.4%",
+        rateDesc: "المركز الأخير بنسبة 0.4% فقط من تراخيص الهيئة.",
+        kpiBadge: "المركز الأخير (حصر محدود - 8 أيام صفر)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "حصر محدود جداً يستوجب توجيه لجان التراخيص بالقناة وبورسعيد وسيناء لحصر ومراجعة التراخيص السارية والمنتهية للربط بالمنظومة."
+    },
+    all: {
+        name: "إجمالي الهيئة ككل",
+        badge: "إدخال 67.2% • مراجعة 32.8%",
+        badgeClass: "badge-teal",
+        totalMath: "873 (شرق) + 775 (وسط) + 153 (عليا) + 105 (وسطى) + 66 (غرب) + 7 (قناة) = 1,979 ترخيصاً",
+        totalDesc: "إجمالي التراخيص الواردة من الإدارات العامة بالهيئة خلال 9 أيام (8-8 إلى 17-8-2026).",
+        rateMath: "تم إدخالها بالمنظومة: 1,330 ترخيصاً (67.2%) | قيد المراجعة والتدقيق: 649 ترخيصاً (32.8%) | المتوسط اليومي: 219.9 ترخيصاً/يوم",
+        rateDesc: "سجلت الهيئة ذروة تدفق كبرى يوم 12 أغسطس بإجمالي 518 ترخيصاً، ويتركز 83.3% من التراخيص في إقليمي شرق ووسط الدلتا.",
+        kpiBadge: "إدخال 67.2% • مراجعة 32.8%",
+        kpiBadgeClass: "badge-teal",
+        kpiReason: "إلزام لجان التراخيص بالأقاليم بإنهاء تدقيق الـ 649 ترخيصاً المتبقية خلال 10 أيام عمل لرفع نسبة الإدخال بالمنظومة إلى 100% وتحصيل كافة مستحقات الدولة."
+    }
+};
+
+function selectLicensesMethodologyRegion(regionKey) {
+    const data = licensesMethodologyData[regionKey];
+    if (!data) return;
+
+    // Update Licenses Chips
+    document.querySelectorAll('.licenses-methodology-region-chips .m-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-target') === regionKey);
+    });
+
+    // Update Licenses Table Rows
+    document.querySelectorAll('.daily-matrix-table tbody tr.clickable-licenses-row').forEach(row => {
+        row.classList.toggle('selected-row', row.getAttribute('data-region') === regionKey);
+    });
+
+    // Update Licenses Badge
+    const badgeEl = document.getElementById('licensesMethodologyRegionBadge');
+    if (badgeEl) {
+        badgeEl.textContent = data.name;
+        badgeEl.className = `badge ${data.badgeClass}`;
+    }
+
+    // Update Licenses Math Cards
+    const totalMath = document.getElementById('lTotalMath');
+    const totalDesc = document.getElementById('lTotalDesc');
+    const rateMath = document.getElementById('lRateMath');
+    const rateDesc = document.getElementById('lRateDesc');
+    const kpiBadge = document.getElementById('lKpiBadge');
+    const kpiDesc = document.getElementById('lKpiDesc');
+
+    if (totalMath) totalMath.textContent = data.totalMath;
+    if (totalDesc) totalDesc.textContent = data.totalDesc;
+    if (rateMath) rateMath.textContent = data.rateMath;
+    if (rateDesc) rateDesc.textContent = data.rateDesc;
+    if (kpiBadge) {
+        kpiBadge.textContent = data.kpiBadge;
+        kpiBadge.className = `badge ${data.kpiBadgeClass}`;
+    }
+    if (kpiDesc) kpiDesc.textContent = data.kpiReason;
+}
+
+function initLicensesMethodology() {
+    // Listeners for Licenses Chips
+    document.querySelectorAll('.licenses-methodology-region-chips .m-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            selectLicensesMethodologyRegion(target);
+        });
+    });
+
+    // Listeners for Licenses Table Rows
+    document.querySelectorAll('.daily-matrix-table tbody tr.clickable-licenses-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const target = row.getAttribute('data-region');
+            selectLicensesMethodologyRegion(target);
+        });
+    });
+}
+
+// ----------------------------------------------------
+// Daily Parallel Contracts Flow Methodology & Calculations Engine
+// ----------------------------------------------------
+const contractsMethodologyData = {
+    middle_egypt: {
+        name: "إقليم مصر الوسطى",
+        badge: "المركز 1 (ريادة مطلقة - 77.8% من الهيئة)",
+        badgeClass: "badge-emerald",
+        totalMath: "28 + 8 + 5 + 24 + 19 + 0 + 0 + 5 = 84 عقداً",
+        totalDesc: "مجموع العقود المرسلة من إدارات مصر الوسطى عبر 8 أيام متابعة (8-8 إلى 16-8-2026)، وسجل أعلى ذروة يومية بالهيئة في 8 أغسطس (28 عقداً) و 24 عقداً في 11 و 12 أغسطس.",
+        rateMath: "المتوسط: 84 ÷ 8 = 10.5 عقد/يوم | المساهمة: (84 ÷ 108) × 100 = 77.8%",
+        rateDesc: "يتصدر المركز الأول بالهيئة باكتساح مطلق بنسبة 77.8% من إجمالي عقود الهيئة وبمعدل تدفق 10.5 عقد/يوم عبر 6 أيام عمل نشطة.",
+        kpiBadge: "المركز 1 (ريادة مطلقة - 77.8% من الهيئة)",
+        kpiBadgeClass: "badge-emerald",
+        kpiReason: "كفاءة إدارية وقانونية استثنائية في سرعة استيفاء وتوثيق العقود وتحويل التوافق الميداني إلى مستندات تعاقدية ملزمة محصلة."
+    },
+    east_delta: {
+        name: "إقليم شرق الدلتا",
+        badge: "المركز 2 (تدفق متقطع بـ 4 أيام نشطة)",
+        badgeClass: "badge-cyan",
+        totalMath: "7 + 1 + 0 + 0 + 5 + 0 + 0 + 5 = 18 عقداً",
+        totalDesc: "إجمالي 18 عقداً مرسلة عبر 4 أيام نشطة بذروة 7 عقود يوم 8-8 و 5 عقود في 12 و 16 أغسطس، مقابل 4 أيام توقف تام.",
+        rateMath: "المتوسط: 18 ÷ 8 = 2.25 عقد/يوم | المساهمة: (18 ÷ 108) × 100 = 16.7%",
+        rateDesc: "المركز الثاني على مستوى الهيئة بنسبة مساهمة 16.7% وبمعدل تدفق 2.25 عقد/يوم.",
+        kpiBadge: "المركز 2 (تدفق متقطع بـ 4 أيام نشطة)",
+        kpiBadgeClass: "badge-cyan",
+        kpiReason: "معدل تدفق جيد مع الحاجة لتكثيف التنسيق مع إدارات شرق الدلتا لرفع وتيرة التوقيع وتحويل الممتنعين لعقود مبرمة."
+    },
+    upper_egypt: {
+        name: "إقليم مصر العليا",
+        badge: "المركز 3 (إرسال محدود - يوم واحد فقط)",
+        badgeClass: "badge-amber",
+        totalMath: "0 + 1 + 0 + 0 + 0 + 0 + 0 + 0 = 1 عقد",
+        totalDesc: "إرسال عقد واحد فقط في يوم 9 أغسطس، وصفر عقود في باقي الأيام الـ 7 من فترة المتابعة.",
+        rateMath: "المتوسط: 1 ÷ 8 = 0.13 عقد/يوم | المساهمة: (1 ÷ 108) × 100 = 0.9%",
+        rateDesc: "المركز الثالث بنسبة مساهمة محدودة 0.9% ومتوسط 0.13 عقد/يوم.",
+        kpiBadge: "المركز 3 (إرسال محدود - يوم واحد فقط)",
+        kpiBadgeClass: "badge-amber",
+        kpiReason: "إرسال محدود يستوجب حث لجان البت بمحافظات الصعيد على سرعة توثيق العقود للمواطنين الذين سددوا المقدمات."
+    },
+    west_delta: {
+        name: "إقليم غرب الدلتا",
+        badge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        badgeClass: "badge-rose",
+        totalMath: "0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 0 عقد",
+        totalDesc: "سجل الإقليم صفراً تاماً في كافة أيام المتابعة الـ 8 دون إرسال أي عقد مبرم.",
+        rateMath: "المتوسط: 0 ÷ 8 = 0.0 عقد/يوم | المساهمة: 0.0%",
+        rateDesc: "عدم تسجيل أي تدفق تعاقدي خلال الفترة المذكورة.",
+        kpiBadge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "يتطلب تدخلاً إدارياً عاجلاً لحسم معوقات التسعير بالبحيرة وغرب الدلتا لسرعة بدء إبرام العقود وتوريد مستحقات الدولة."
+    },
+    middle_delta: {
+        name: "إقليم وسط الدلتا",
+        badge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        badgeClass: "badge-rose",
+        totalMath: "0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 0 عقد",
+        totalDesc: "سجل الإقليم صفراً تاماً في كافة أيام المتابعة الـ 8 دون إرسال أي عقد مبرم.",
+        rateMath: "المتوسط: 0 ÷ 8 = 0.0 عقد/يوم | المساهمة: 0.0%",
+        rateDesc: "عدم تسجيل أي تدفق تعاقدي خلال الفترة المذكورة.",
+        kpiBadge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "ضرورة تحفيز إدارات الغربية والمنوفية وكفر الشيخ لتحويل الحالات الصالحة إلى عقود رسمية مبرمة ومسجلة."
+    },
+    canal_sinai: {
+        name: "إقليم القناة وسيناء",
+        badge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        badgeClass: "badge-rose",
+        totalMath: "0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 0 عقد",
+        totalDesc: "سجل الإقليم صفراً تاماً في كافة أيام المتابعة الـ 8 دون إرسال أي عقد مبرم.",
+        rateMath: "المتوسط: 0 ÷ 8 = 0.0 عقد/يوم | المساهمة: 0.0%",
+        rateDesc: "عدم تسجيل أي تدفق تعاقدي خلال الفترة المذكورة.",
+        kpiBadge: "انقطاع تام (صفر عقود طوال 8 أيام)",
+        kpiBadgeClass: "badge-rose",
+        kpiReason: "توجيه إدارات الإسماعيلية وسيناء وبورسعيد لمتابعة طالبي التقنين المستوفين لإنهاء توقيع العقود."
+    },
+    all: {
+        name: "إجمالي الهيئة ككل",
+        badge: "تركز 94.5% بوسطى وشرق الدلتا",
+        badgeClass: "badge-teal",
+        totalMath: "84 (وسطى) + 18 (شرق) + 1 (عليا) + 0 (غرب) + 0 (وسط) + 0 (قناة) = 108 عقود",
+        totalDesc: "إجمالي العقود الواردة من الإدارات العامة بالهيئة خلال 8 أيام متابعة (8-8 إلى 16-8-2026).",
+        rateMath: "المتوسط اليومي للهيئة: 108 ÷ 8 = 13.5 عقد/يوم | نسبة التركيز: (102 ÷ 108) × 100 = 94.5%",
+        rateDesc: "حققت الهيئة ذروة تعاقدية كبرى يوم 8-8 بواقع 35 عقداً، ويتركز 94.5% من العقود في إقليمي مصر الوسطى وشرق الدلتا.",
+        kpiBadge: "تركز 94.5% بوسطى وشرق الدلتا",
+        kpiBadgeClass: "badge-teal",
+        kpiReason: "إلزام لجان التعاقد بالأقاليم الصفرية الثلاثة (غرب، وسط، قناة) بإنهاء وتوريد عقود الحالات الصالحة لرفع معدل التحصيل العام."
+    }
+};
+
+function selectContractsMethodologyRegion(regionKey) {
+    const data = contractsMethodologyData[regionKey];
+    if (!data) return;
+
+    // Update Contracts Chips
+    document.querySelectorAll('.contracts-methodology-region-chips .m-chip').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-target') === regionKey);
+    });
+
+    // Update Contracts Table Rows
+    document.querySelectorAll('#dailyContractsTable tbody tr.clickable-contracts-row').forEach(row => {
+        row.classList.toggle('selected-row', row.getAttribute('data-region') === regionKey);
+    });
+
+    // Update Contracts Badge
+    const badgeEl = document.getElementById('contractsMethodologyRegionBadge');
+    if (badgeEl) {
+        badgeEl.textContent = data.name;
+        badgeEl.className = `badge ${data.badgeClass}`;
+    }
+
+    // Update Contracts Math Cards
+    const totalMath = document.getElementById('cTotalMath');
+    const totalDesc = document.getElementById('cTotalDesc');
+    const rateMath = document.getElementById('cRateMath');
+    const rateDesc = document.getElementById('cRateDesc');
+    const kpiBadge = document.getElementById('cKpiBadge');
+    const kpiDesc = document.getElementById('cKpiDesc');
+
+    if (totalMath) totalMath.textContent = data.totalMath;
+    if (totalDesc) totalDesc.textContent = data.totalDesc;
+    if (rateMath) rateMath.textContent = data.rateMath;
+    if (rateDesc) rateDesc.textContent = data.rateDesc;
+    if (kpiBadge) {
+        kpiBadge.textContent = data.kpiBadge;
+        kpiBadge.className = `badge ${data.kpiBadgeClass}`;
+    }
+    if (kpiDesc) kpiDesc.textContent = data.kpiReason;
+}
+
+function initContractsMethodology() {
+    // Listeners for Contracts Chips
+    document.querySelectorAll('.contracts-methodology-region-chips .m-chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            selectContractsMethodologyRegion(target);
+        });
+    });
+
+    // Listeners for Contracts Table Rows
+    document.querySelectorAll('#dailyContractsTable tbody tr.clickable-contracts-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const target = row.getAttribute('data-region');
+            selectContractsMethodologyRegion(target);
+        });
+    });
+}
+
